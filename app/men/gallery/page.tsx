@@ -5,6 +5,7 @@ import { Instagram, ExternalLink } from "lucide-react";
 import { CTASection } from "@/components/shared/CTASection";
 import { brand } from "@/config/brand";
 import { generateMetadata } from "@/config/site";
+import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
   title: "Gallery - Men's Haircuts & Grooming",
@@ -14,15 +15,15 @@ export const metadata: Metadata = generateMetadata({
 
 // Placeholder gallery images - replace with actual client photos
 const galleryImages = [
-  { id: 1, src: "/images/gallery/men-1.jpg", alt: "Skin fade haircut", category: "Haircuts" },
-  { id: 2, src: "/images/gallery/men-2.jpg", alt: "Classic men's cut", category: "Haircuts" },
-  { id: 3, src: "/images/gallery/men-3.jpg", alt: "Beard trim and shape", category: "Grooming" },
-  { id: 4, src: "/images/gallery/men-4.jpg", alt: "Taper fade", category: "Haircuts" },
-  { id: 5, src: "/images/gallery/men-5.jpg", alt: "Textured crop", category: "Haircuts" },
-  { id: 6, src: "/images/gallery/men-6.jpg", alt: "Beard sculpting", category: "Grooming" },
-  { id: 7, src: "/images/gallery/men-7.jpg", alt: "Pompadour style", category: "Haircuts" },
-  { id: 8, src: "/images/gallery/men-8.jpg", alt: "Buzz cut", category: "Haircuts" },
-  { id: 9, src: "/images/gallery/men-9.jpg", alt: "Full grooming service", category: "Packages" },
+  { id: 1, src: imageConfig.menGallery[0], alt: "Skin fade haircut", category: "Haircuts" },
+  { id: 2, src: imageConfig.menGallery[1], alt: "Classic men's cut", category: "Haircuts" },
+  { id: 3, src: imageConfig.menGallery[2], alt: "Beard trim and shape", category: "Grooming" },
+  { id: 4, src: imageConfig.menGallery[3], alt: "Taper fade", category: "Haircuts" },
+  { id: 5, src: imageConfig.menGallery[4], alt: "Textured crop", category: "Haircuts" },
+  { id: 6, src: imageConfig.menGallery[5], alt: "Beard sculpting", category: "Grooming" },
+  { id: 7, src: imageConfig.menGallery[6], alt: "Pompadour style", category: "Haircuts" },
+  { id: 8, src: imageConfig.menGallery[7], alt: "Buzz cut", category: "Haircuts" },
+  { id: 9, src: imageConfig.menGallery[8], alt: "Full grooming service", category: "Packages" },
 ];
 
 export default function MenGalleryPage() {

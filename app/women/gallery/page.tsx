@@ -5,6 +5,7 @@ import { Instagram, ExternalLink } from "lucide-react";
 import { CTASection } from "@/components/shared/CTASection";
 import { brand } from "@/config/brand";
 import { generateMetadata } from "@/config/site";
+import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
   title: "Gallery - Women's Hair Transformations",
@@ -14,15 +15,15 @@ export const metadata: Metadata = generateMetadata({
 
 // Placeholder gallery images - replace with actual client photos
 const galleryImages = [
-  { id: 1, src: "/images/gallery/women-1.jpg", alt: "Balayage hair color", category: "Color" },
-  { id: 2, src: "/images/gallery/women-2.jpg", alt: "Women's haircut", category: "Cut & Style" },
-  { id: 3, src: "/images/gallery/women-3.jpg", alt: "Highlights transformation", category: "Color" },
-  { id: 4, src: "/images/gallery/women-4.jpg", alt: "Special occasion updo", category: "Styling" },
-  { id: 5, src: "/images/gallery/women-5.jpg", alt: "Long layered cut", category: "Cut & Style" },
-  { id: 6, src: "/images/gallery/women-6.jpg", alt: "Ombre color", category: "Color" },
-  { id: 7, src: "/images/gallery/women-7.jpg", alt: "Bob haircut", category: "Cut & Style" },
-  { id: 8, src: "/images/gallery/women-8.jpg", alt: "Full highlights", category: "Color" },
-  { id: 9, src: "/images/gallery/women-9.jpg", alt: "Beach waves styling", category: "Styling" },
+  { id: 1, src: imageConfig.womenGallery[0], alt: "Balayage hair color", category: "Color" },
+  { id: 2, src: imageConfig.womenGallery[1], alt: "Women's haircut", category: "Cut & Style" },
+  { id: 3, src: imageConfig.womenGallery[2], alt: "Highlights transformation", category: "Color" },
+  { id: 4, src: imageConfig.womenGallery[3], alt: "Special occasion updo", category: "Styling" },
+  { id: 5, src: imageConfig.womenGallery[4], alt: "Long layered cut", category: "Cut & Style" },
+  { id: 6, src: imageConfig.womenGallery[5], alt: "Ombre color", category: "Color" },
+  { id: 7, src: imageConfig.womenGallery[6], alt: "Bob haircut", category: "Cut & Style" },
+  { id: 8, src: imageConfig.womenGallery[7], alt: "Full highlights", category: "Color" },
+  { id: 9, src: imageConfig.womenGallery[8], alt: "Beach waves styling", category: "Styling" },
 ];
 
 export default function WomenGalleryPage() {

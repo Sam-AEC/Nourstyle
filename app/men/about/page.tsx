@@ -4,6 +4,7 @@ import { Award, Scissors, Sparkles, CheckCircle2 } from "lucide-react";
 import { CTASection } from "@/components/shared/CTASection";
 import { brand } from "@/config/brand";
 import { generateMetadata, siteConfig } from "@/config/site";
+import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
   title: "About - Your Amsterdam Barber",
@@ -32,7 +33,7 @@ export default function MenAboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/images/stylist-portrait.jpg"
+                src={imageConfig.stylistPortrait}
                 alt="Professional Barber"
                 fill
                 className="object-cover"

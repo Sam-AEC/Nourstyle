@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Scissors, Sparkles } from "lucide-react";
 import { brand } from "@/config/brand";
+import { imageConfig } from "@/config/images";
 
 export default function HomePage() {
   return (
@@ -24,7 +25,7 @@ export default function HomePage() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src="/images/women-hero.jpg"
+              src={imageConfig.womenHero}
               alt="Women's Hair Services"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -71,7 +72,7 @@ export default function HomePage() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src="/images/men-hero.jpg"
+              src={imageConfig.menHero}
               alt="Men's Grooming Services"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"

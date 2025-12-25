@@ -8,6 +8,7 @@ import { CTASection } from "@/components/shared/CTASection";
 import { brand, getWhatsAppLink } from "@/config/brand";
 import { womenServices, getPopularServices } from "@/config/services";
 import { siteConfig, generateMetadata } from "@/config/site";
+import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
   title: "Women's Hair Services in Amsterdam",
@@ -34,7 +35,7 @@ export default function WomenHomePage() {
           label: "View Services",
           href: "/women/services",
         }}
-        imageSrc="/images/women-hero.jpg"
+        imageSrc={imageConfig.womenHero}
         imageAlt="Women's Hair Styling"
         section="women"
       />

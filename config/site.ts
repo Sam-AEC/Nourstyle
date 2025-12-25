@@ -12,7 +12,7 @@ export const siteConfig = {
   url: process.env.SITE_URL || "https://nourstyle.nl",
 
   // OpenGraph & Social
-  ogImage: "/images/og-image.jpg", // Update with actual OG image
+  ogImage: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=630&fit=crop&q=80",
   twitterHandle: "@nourstyle",
 
   // Contact
@@ -149,7 +149,7 @@ export const siteConfig = {
     "@context": "https://schema.org",
     "@type": "HairSalon",
     name: brand.name,
-    image: `${process.env.SITE_URL || "https://nourstyle.nl"}/images/og-image.jpg`,
+    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=630&fit=crop&q=80",
     "@id": process.env.SITE_URL || "https://nourstyle.nl",
     url: process.env.SITE_URL || "https://nourstyle.nl",
     telephone: brand.contact.phone,

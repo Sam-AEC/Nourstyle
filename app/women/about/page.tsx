@@ -4,6 +4,7 @@ import { Award, Heart, Sparkles, CheckCircle2 } from "lucide-react";
 import { CTASection } from "@/components/shared/CTASection";
 import { brand } from "@/config/brand";
 import { generateMetadata, siteConfig } from "@/config/site";
+import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
   title: "About Us - Your Amsterdam Hair Stylist",
@@ -32,7 +33,7 @@ export default function WomenAboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="relative aspect-square overflow-hidden rounded-lg">
               <Image
-                src="/images/stylist-portrait.jpg"
+                src={imageConfig.stylistPortrait}
                 alt="Professional Hair Stylist"
                 fill
                 className="object-cover"
