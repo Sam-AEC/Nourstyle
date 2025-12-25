@@ -1,0 +1,41 @@
+# Required Images for NourStyle Website
+
+Place your images in this directory following this structure:
+
+## Hero Images (Required)
+- women-hero.jpg (1920x1080) - Main banner image for women's section
+- men-hero.jpg (1920x1080) - Main banner image for men's section
+
+## Portrait
+- stylist-portrait.jpg (800x800) - Professional photo of the stylist
+
+## Social Media
+- og-image.jpg (1200x630) - Preview image when site is shared on social media
+
+## Gallery Images
+Create a "gallery" subdirectory with:
+
+gallery/
+├── women-1.jpg to women-9.jpg (min 800x800 each)
+└── men-1.jpg to men-9.jpg (min 800x800 each)
+
+## Where to Find Placeholder Images
+
+While building your real photo gallery, use free stock photos from:
+- https://unsplash.com (search: "haircut woman", "barber man", "hair salon")
+- https://pexels.com (similar searches)
+- https://pixabay.com (free stock photos)
+
+## Image Guidelines
+- Format: JPG for photos, PNG for graphics/logos
+- Max file size: 2MB per image (Next.js will optimize)
+- Minimum resolution: 1200px wide for heroes, 800px for portraits/gallery
+- Orientation: Landscape for heroes, square for portraits/gallery
+
+## After Adding Images
+1. Delete or rename this file
+2. Images will automatically be optimized by Next.js
+3. Test on localhost to ensure they load correctly
+
+---
+Last updated: 2025-12-25
