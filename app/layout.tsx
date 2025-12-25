@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+
+// Premium Typography Setup
+const fontHeading = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const fontSans = Manrope({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Home Salon Amsterdam`,
+    default: `${siteConfig.name} | Premium Home Salon Amsterdam`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -13,10 +28,10 @@ export const metadata: Metadata = {
     "hair salon Amsterdam",
     "barber Amsterdam",
     "home salon",
+    "luxury hair styling",
     "women's hairstylist",
     "men's haircut",
     "balayage Amsterdam",
-    "beard trim",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -55,7 +70,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Add your actual verification code
+    google: "your-google-verification-code",
   },
 };
 
@@ -65,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -74,7 +89,15 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body
+        className={cn(
+          "min-h-screen font-sans antialiased",
+          fontHeading.variable,
+          fontSans.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }

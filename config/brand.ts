@@ -68,12 +68,12 @@ export const brand = {
   // Theme Colors (matches Tailwind config)
   colors: {
     women: {
-      primary: "#008080",      // Turquoise teal
-      secondary: "#FFBBB1",    // Soft coral pink
+      primary: "#2A5C5A",      // Deep Elegant Teal
+      secondary: "#DBC1AC",    // Champagne/Sand
     },
     men: {
-      primary: "#009B8E",      // Brighter teal
-      secondary: "#4E4E4E",    // Mid gray
+      primary: "#2DD4BF",      // Premium Teal
+      secondary: "#64748B",    // Slate Blue
     },
   },
 

@@ -1,125 +1,194 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { Scissors, Sparkles } from "lucide-react";
+import { Scissors, Sparkles, MapPin, Phone } from "lucide-react";
 import { brand } from "@/config/brand";
 import { imageConfig } from "@/config/images";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.3, delayChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
+};
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col">
-      {/* Logo Header */}
-      <header className="absolute left-0 right-0 top-0 z-20 p-8 text-center">
-        <h1 className="text-4xl font-bold text-white drop-shadow-lg md:text-5xl">
-          {brand.name}
-        </h1>
-        <p className="mt-2 text-white/90 drop-shadow-md">{brand.tagline}</p>
-      </header>
+    <main className="flex min-h-screen flex-col bg-neutral-900">
+      {/* Logo Header - Floating Glass */}
+      <motion.header 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="absolute left-0 right-0 top-0 z-30 p-6 flex justify-center pointer-events-none"
+      >
+        <div className="bg-white/10 backdrop-blur-md px-8 py-3 rounded-full border border-white/20 shadow-2xl">
+          <h1 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+            {brand.name}
+          </h1>
+        </div>
+      </motion.header>
 
-      {/* Split Screen */}
-      <div className="grid flex-1 md:grid-cols-2">
+      {/* Split Screen Container */}
+      <div className="grid flex-1 md:grid-cols-2 h-full">
         {/* Women's Section */}
         <Link
           href="/women"
-          className="group relative flex min-h-[50vh] items-center justify-center overflow-hidden md:min-h-screen"
+          className="group relative flex min-h-[50vh] flex-col items-center justify-center overflow-hidden md:min-h-screen border-b-4 border-women-primary md:border-b-0 md:border-r-4"
         >
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <Image
-              src={imageConfig.womenHero}
-              alt="Women's Hair Services"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-              quality={90}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-women-primary/30 to-black/40 transition-opacity group-hover:opacity-90" />
+          {/* Background Image with Cinematic Zoom */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div 
+              className="relative h-full w-full"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+              <Image
+                src={imageConfig.womenHero}
+                alt="Women's Hair Services"
+                fill
+                className="object-cover"
+                priority
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-women-primary/90 via-women-primary/20 to-black/30 transition-all duration-700 group-hover:via-women-primary/40" />
+            </motion.div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 space-y-6 p-8 text-center text-white">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-4 border-white/50 bg-white/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:border-white">
-              <Sparkles className="h-10 w-10" />
-            </div>
+          <motion.div 
+            className="relative z-10 p-8 text-center text-white"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div 
+              variants={itemVariants} 
+              className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-md shadow-xl ring-1 ring-white/50 transition-all group-hover:scale-110 group-hover:bg-women-primary/80"
+            >
+              <Sparkles className="h-10 w-10 text-white" />
+            </motion.div>
 
-            <div>
-              <h2 className="text-4xl font-bold drop-shadow-lg md:text-5xl lg:text-6xl">
-                Women
-              </h2>
-              <p className="mt-3 text-lg drop-shadow-md md:text-xl">
-                Cuts • Color • Styling
-              </p>
-            </div>
+            <motion.h2 
+              variants={itemVariants}
+              className="text-5xl font-bold font-heading mb-3 drop-shadow-xl md:text-7xl"
+            >
+              Women
+            </motion.h2>
+            
+            <motion.p 
+              variants={itemVariants}
+              className="mb-8 text-lg font-medium text-white/90 tracking-wide uppercase text-shadow-sm md:text-xl"
+            >
+              Cuts • Color • Styling
+            </motion.p>
 
-            <div className="pt-4">
-              <span className="inline-flex items-center gap-2 rounded-full border-2 border-white bg-white/10 px-6 py-3 text-lg font-semibold backdrop-blur-sm transition-all group-hover:bg-white group-hover:text-neutral-900">
-                Explore Services
-                <span className="transition-transform group-hover:translate-x-1">→</span>
+            <motion.div 
+              variants={itemVariants}
+              className="overflow-hidden rounded-full"
+            >
+              <span className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-3 text-lg font-bold text-women-primary shadow-lg transition-all duration-300 group-hover:bg-women-primary group-hover:text-white group-hover:shadow-women-primary/50 group-hover:shadow-2xl">
+                Enter Salon
               </span>
-            </div>
-          </div>
-
-          {/* Decorative Element */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center text-white/80">
-            <p className="text-sm">Tap to explore</p>
-          </div>
+            </motion.div>
+          </motion.div>
         </Link>
 
         {/* Men's Section */}
         <Link
           href="/men"
-          className="group relative flex min-h-[50vh] items-center justify-center overflow-hidden md:min-h-screen"
+          className="group relative flex min-h-[50vh] flex-col items-center justify-center overflow-hidden md:min-h-screen"
         >
           {/* Background Image */}
-          <div className="absolute inset-0">
-            <Image
-              src={imageConfig.menHero}
-              alt="Men's Grooming Services"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-              quality={90}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-men-primary/30 to-black/40 transition-opacity group-hover:opacity-90" />
+          <div className="absolute inset-0 overflow-hidden">
+             <motion.div 
+              className="relative h-full w-full"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+              <Image
+                src={imageConfig.menHero}
+                alt="Men's Grooming Services"
+                fill
+                className="object-cover"
+                priority
+                quality={90}
+              />
+               <div className="absolute inset-0 bg-gradient-to-t from-men-bg/90 via-men-primary/20 to-black/30 transition-all duration-700 group-hover:via-men-primary/30" />
+            </motion.div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 space-y-6 p-8 text-center text-white">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-4 border-white/50 bg-white/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:border-white">
-              <Scissors className="h-10 w-10" />
-            </div>
+          <motion.div 
+            className="relative z-10 p-8 text-center text-white"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div 
+              variants={itemVariants} 
+              className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-md shadow-xl ring-1 ring-white/50 transition-all group-hover:scale-110 group-hover:bg-men-primary/80"
+            >
+              <Scissors className="h-10 w-10 text-white" />
+            </motion.div>
 
-            <div>
-              <h2 className="text-4xl font-bold drop-shadow-lg md:text-5xl lg:text-6xl">
-                Men
-              </h2>
-              <p className="mt-3 text-lg drop-shadow-md md:text-xl">
-                Haircuts • Fades • Beard
-              </p>
-            </div>
+            <motion.h2 
+              variants={itemVariants}
+              className="text-5xl font-bold font-heading mb-3 drop-shadow-xl md:text-7xl"
+            >
+              Men
+            </motion.h2>
+            
+            <motion.p 
+              variants={itemVariants}
+              className="mb-8 text-lg font-medium text-white/90 tracking-wide uppercase text-shadow-sm md:text-xl"
+            >
+              Grooming • Fades • Beard
+            </motion.p>
 
-            <div className="pt-4">
-              <span className="inline-flex items-center gap-2 rounded-full border-2 border-white bg-white/10 px-6 py-3 text-lg font-semibold backdrop-blur-sm transition-all group-hover:bg-white group-hover:text-neutral-900">
-                Explore Services
-                <span className="transition-transform group-hover:translate-x-1">→</span>
+            <motion.div 
+              variants={itemVariants}
+              className="overflow-hidden rounded-full"
+            >
+              <span className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-3 text-lg font-bold text-men-bg shadow-lg transition-all duration-300 group-hover:bg-men-primary group-hover:text-white group-hover:shadow-men-primary/50 group-hover:shadow-2xl">
+                Enter Barbershop
               </span>
-            </div>
-          </div>
-
-          {/* Decorative Element */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center text-white/80">
-            <p className="text-sm">Tap to explore</p>
-          </div>
+            </motion.div>
+          </motion.div>
         </Link>
       </div>
 
-      {/* Location Info Bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 bg-black/80 py-4 text-center text-white backdrop-blur-sm md:py-6">
-        <p className="text-sm md:text-base">
-          📍 {brand.contact.address.neighborhood}, {brand.contact.address.city} •{" "}
-          📞 {brand.contact.phone} •{" "}
-          By Appointment
-        </p>
-      </div>
+      {/* Location Info Bar - Mobile Optimized */}
+      <motion.div 
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="absolute bottom-6 left-4 right-4 z-30 flex justify-center pointer-events-none"
+      >
+        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 rounded-2xl border border-white/10 bg-black/60 px-6 py-3 text-sm text-white backdrop-blur-md shadow-2xl pointer-events-auto">
+          <a href={`https://maps.google.com/?q=${brand.contact.address.street},+${brand.contact.address.city}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-women-secondary transition-colors">
+            <MapPin className="h-4 w-4 text-women-secondary" />
+            <span>{brand.contact.address.neighborhood}, {brand.contact.address.city}</span>
+          </a>
+          <span className="hidden md:inline text-white/20">|</span>
+          <a href={`tel:${brand.contact.phone}`} className="flex items-center gap-2 hover:text-women-secondary transition-colors">
+            <Phone className="h-4 w-4 text-women-secondary" />
+            <span>{brand.contact.phone}</span>
+          </a>
+        </div>
+      </motion.div>
     </main>
   );
 }

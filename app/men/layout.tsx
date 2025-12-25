@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { MobileFloatingBar } from "@/components/layout/MobileFloatingBar";
 import { siteConfig } from "@/config/site";
 
 export default function MenLayout({
@@ -12,6 +13,7 @@ export default function MenLayout({
       <Header section="men" navLinks={siteConfig.menNav} />
       <main className="flex-1">{children}</main>
       <Footer section="men" />
+      <MobileFloatingBar section="men" />
     </div>
   );
 }
