@@ -24,6 +24,9 @@ export const imageConfig = {
     "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1000&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1519699047748-40ba5267989b?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1522337360705-2bbf99d8d685?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1582095133179-bfd08d2fc6b2?q=80&w=1000&auto=format&fit=crop",
   ],
   
   // Men's Gallery - High Res & Moody
@@ -34,5 +37,8 @@ export const imageConfig = {
     "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=1000&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1532710093739-9470acff878f?q=80&w=1000&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1512690459411-b9245aed6191?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1635273051937-2780e1b9b26e?q=80&w=1000&auto=format&fit=crop",
   ],
 } as const;
