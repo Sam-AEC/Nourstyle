@@ -115,7 +115,7 @@ export const menServices: Service[] = [
     name: "Men's Haircut",
     description: "Complete haircut with consultation, precision cut, and styling. Any length or style.",
     duration: "45 min",
-    price: "€30",
+    price: "€25",
     category: "Haircuts",
     popular: true,
   },
