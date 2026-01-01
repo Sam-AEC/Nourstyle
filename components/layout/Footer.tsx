@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from "lucide-react";
-import { brand, getWhatsAppLink, getGoogleMapsLink } from "@/config/brand";
+import { brand, getGoogleMapsLink } from "@/config/brand";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n-context";
 
 interface FooterProps {
   section?: "women" | "men";
@@ -10,7 +13,7 @@ interface FooterProps {
 
 export function Footer({ section }: FooterProps) {
   const currentYear = new Date().getFullYear();
-  const themeClass = section === "women" ? "theme-women" : section === "men" ? "theme-men" : "";
+  const { t } = useI18n();
 
   return (
     <footer
@@ -81,7 +84,7 @@ export function Footer({ section }: FooterProps) {
 
           {/* Contact Info */}
           <div>
-            <h4 className="mb-4 font-semibold">Contact</h4>
+            <h4 className="mb-4 font-semibold">{t('footer.contact')}</h4>
             <div className="space-y-3 text-sm">
               <a
                 href={getGoogleMapsLink()}
@@ -116,10 +119,10 @@ export function Footer({ section }: FooterProps) {
 
           {/* Booking */}
           <div>
-            <h4 className="mb-4 font-semibold">Book Appointment</h4>
+            <h4 className="mb-4 font-semibold">{t('footer.book_title')}</h4>
             <div className="space-y-3 text-sm">
               <p className={section === "men" ? "text-men-text-muted" : "text-women-text-muted"}>
-                Flexible scheduling based on calendar availability.
+                {t('footer.flexible_schedule')}
               </p>
               <a
                 href={brand.booking.url}
@@ -135,7 +138,7 @@ export function Footer({ section }: FooterProps) {
                 )}
               >
                 <Clock className="h-4 w-4" />
-                Check Availability
+                {t('footer.check_availability')}
               </a>
             </div>
           </div>
@@ -151,7 +154,7 @@ export function Footer({ section }: FooterProps) {
               : "border-neutral-200"
         )}>
           <p className={section === "men" ? "text-men-text-muted" : "text-women-text-muted"}>
-            © {currentYear} {brand.name}. All rights reserved.
+            (c) {currentYear} {brand.name}. {t('footer.rights')}
           </p>
 
           <div className="flex gap-6">
@@ -161,7 +164,9 @@ export function Footer({ section }: FooterProps) {
                 href={link.href}
                 className="hover:opacity-80"
               >
-                {link.label}
+                {/* Check specific links for translation */}
+                {link.label === "Privacy Policy" ? t('footer.privacy') :
+                  link.label === "Terms of Service" ? t('footer.terms') : link.label}
               </Link>
             ))}
           </div>
