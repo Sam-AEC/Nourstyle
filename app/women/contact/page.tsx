@@ -134,7 +134,7 @@ export default function WomenContactPage() {
                     <div>
                       <h3 className="mb-2 font-semibold">Flexible Scheduling</h3>
                       <p className="text-sm text-women-text-muted">
-                        Appointments available based on calendar availability. Book online to see real-time open slots.
+                        Appointments available based on calendar availability. Book online to see real time open slots.
                       </p>
                       <a
                         href={brand.booking.url}
@@ -167,7 +167,7 @@ export default function WomenContactPage() {
                   <div className="rounded-lg bg-women-surface p-4">
                     <h4 className="mb-2 font-semibold">Parking & Transport</h4>
                     <p className="text-sm text-women-text-muted">
-                      Free street parking available in the neighborhood. Also easily accessible by public transport (5-minute walk from tram stop).
+                      Free street parking available in the neighborhood. Also easily accessible by public transport (5 minute walk from tram stop).
                     </p>
                   </div>
                 </div>

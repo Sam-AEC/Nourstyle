@@ -56,19 +56,19 @@ export const siteConfig = {
     women: [
       {
         question: "What hair services do you specialize in?",
-        answer: "I specialize in all aspects of women's hair care - precision cuts, creative coloring (balayage, highlights, full color), and special occasion styling. Since 2022, I've been dedicated to perfecting my craft and have worked with all hair types and textures.",
+        answer: "I specialize in all aspects of women's hair care, precision cuts, creative coloring (balayage, highlights, full color), and special occasion styling. Since 2022, I've been dedicated to perfecting my craft and have worked with all hair types and textures.",
       },
       {
         question: "Is a home salon as professional as a traditional salon?",
-        answer: "Absolutely! My home studio is a dedicated, professional space with salon-grade equipment and products. The advantage is you get one-on-one attention in a private, relaxed environment without the hustle of a busy salon.",
+        answer: "Absolutely! My home studio is a dedicated, professional space with salon grade equipment and products. The advantage is you get one on one attention in a private, relaxed environment without the hustle of a busy salon.",
       },
       {
         question: "How long does a color appointment take?",
-        answer: "It depends on the service. Simple root touch-ups take about 90 minutes, while full highlights or balayage can take 2.5-3 hours. I always prioritize quality over speed, and I'll give you an accurate time estimate during your consultation.",
+        answer: "It depends on the service. Simple root touch ups take about 90 minutes, while full highlights or balayage can take 2.5 to 3 hours. I always prioritize quality over speed, and I'll give you an accurate time estimate during your consultation.",
       },
       {
         question: "What brands do you use?",
-        answer: "I use professional-grade products from trusted brands like L'Oréal Professional, Schwarzkopf, and Redken. All color products are ammonia-free options available for sensitive scalps.",
+        answer: "I use professional grade products from trusted brands like L'Oréal Professional, Schwarzkopf, and Redken. All color products are ammonia free options available for sensitive scalps.",
       },
       {
         question: "Can I bring inspiration photos?",
@@ -78,15 +78,15 @@ export const siteConfig = {
     men: [
       {
         question: "Do you do modern fades and trendy men's styles?",
-        answer: "Yes! I'm experienced in all current men's styles - skin fades, tapers, textured crops, and classic cuts. I stay updated on trends and techniques through regular training.",
+        answer: "Yes! I'm experienced in all current men's styles, skin fades, tapers, textured crops, and classic cuts. I stay updated on trends and techniques through regular training.",
       },
       {
         question: "How often should I get a haircut?",
-        answer: "For fades and short styles, every 2-3 weeks keeps you looking sharp. For longer styles, 4-6 weeks is typical. I'll recommend a schedule based on your specific haircut and how fast your hair grows.",
+        answer: "For fades and short styles, every 2 to 3 weeks keeps you looking sharp. For longer styles, 4 to 6 weeks is typical. I'll recommend a schedule based on your specific haircut and how fast your hair grows.",
       },
       {
-        question: "Do you accept walk-ins?",
-        answer: "I operate by appointment to ensure quality service and no waiting. However, I keep flexible hours and can often accommodate same-day or next-day bookings. Just call or message me!",
+        question: "Do you accept walk ins?",
+        answer: "I operate by appointment to ensure quality service and no waiting. However, I keep flexible hours and can often accommodate same day or next day bookings. Just call or message me!",
       },
       {
         question: "What's included in the Haircut + Beard Combo?",
@@ -94,7 +94,7 @@ export const siteConfig = {
       },
       {
         question: "Is parking available?",
-        answer: "Yes, free street parking is available in the neighborhood. The salon is also easily accessible by public transport (5-minute walk from tram stop).",
+        answer: "Yes, free street parking is available in the neighborhood. The salon is also easily accessible by public transport (5 minute walk from tram stop).",
       },
     ],
   },
@@ -105,7 +105,7 @@ export const siteConfig = {
       {
         id: 1,
         name: "Sarah M.",
-        text: "I've been going to expensive salons for years, but the one-on-one attention here is unmatched. My balayage has never looked better!",
+        text: "I've been going to expensive salons for years, but the one on one attention here is unmatched. My balayage has never looked better!",
         service: "Balayage",
         rating: 5,
       },
@@ -128,14 +128,14 @@ export const siteConfig = {
       {
         id: 1,
         name: "Mark T.",
-        text: "Best fade I've had in Amsterdam. No waiting in line, professional setup, and always consistent quality. My go-to barber now.",
+        text: "Best fade I've had in Amsterdam. No waiting in line, professional setup, and always consistent quality. My go to barber now.",
         service: "Skin Fade",
         rating: 5,
       },
       {
         id: 2,
         name: "David R.",
-        text: "I appreciate the skill and attention to detail. It's like having a private barber - great conversation and a perfect cut every time.",
+        text: "I appreciate the skill and attention to detail. It's like having a private barber. Great conversation and a perfect cut every time.",
         service: "Men's Haircut",
         rating: 5,
       },
@@ -150,7 +150,7 @@ export const siteConfig = {
   },
 
   // Business hours for schema markup
-  businessHours: "Tu-Fr 10:00-19:00, Sa 10:00-17:00",
+  businessHours: "Tu Fr 10:00 to 19:00, Sa 10:00 to 17:00",
 
   // Structured data
   structuredData: {

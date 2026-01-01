@@ -5,7 +5,7 @@ import { cancellationPolicy } from "@/config/services";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms of service for NourStyle Salon. Understand our policies and your rights when using our services.",
+  description: `Terms of service for ${brand.name}. Understand our policies and your rights when using our services.`,
 };
 
 export default function TermsPage() {
@@ -14,7 +14,7 @@ export default function TermsPage() {
       <div className="container py-16">
         <div className="mx-auto max-w-4xl">
           <Link href="/" className="mb-8 inline-block text-sm text-neutral-600 hover:text-neutral-900">
-            ← Back to Home
+            Back to Home
           </Link>
 
           <h1 className="mb-8 text-4xl font-bold">Terms of Service</h1>
@@ -41,7 +41,7 @@ export default function TermsPage() {
             <section>
               <h2 className="mb-4 text-2xl font-semibold text-neutral-900">3. Appointments & Booking</h2>
               <ul className="list-disc space-y-2 pl-6">
-                <li><strong>By Appointment Only:</strong> All services are provided by appointment. Walk-ins may be accommodated based on availability.</li>
+                <li><strong>By Appointment Only:</strong> All services are provided by appointment. Walk ins may be accommodated based on availability.</li>
                 <li><strong>Booking Confirmation:</strong> Appointments are confirmed once you receive a confirmation email or SMS.</li>
                 <li><strong>Accuracy:</strong> You are responsible for providing accurate contact information and service preferences when booking.</li>
                 <li><strong>Timeliness:</strong> Please arrive on time for your appointment. Late arrivals may result in shortened service time or rescheduling.</li>
@@ -49,16 +49,16 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="mb-4 text-2xl font-semibold text-neutral-900">4. Cancellation & No-Show Policy</h2>
+              <h2 className="mb-4 text-2xl font-semibold text-neutral-900">4. Cancellation & No Show Policy</h2>
               <div className="rounded-lg bg-neutral-50 p-6">
                 <p><strong>Notice Required:</strong> {cancellationPolicy.notice}</p>
                 <p className="mt-2">{cancellationPolicy.text}</p>
               </div>
               <ul className="mt-4 list-disc space-y-2 pl-6">
                 <li>To cancel or reschedule, contact us by phone, email, or WhatsApp</li>
-                <li>Cancellations made within {cancellationPolicy.notice} or no-shows may incur a fee of {cancellationPolicy.fee}</li>
-                <li>Repeated no-shows may result in requiring a deposit for future bookings</li>
-                <li>Emergencies and exceptional circumstances will be handled on a case-by-case basis</li>
+                <li>Cancellations made within {cancellationPolicy.notice} or no shows may incur a fee of {cancellationPolicy.fee}</li>
+                <li>Repeated no shows may result in requiring a deposit for future bookings</li>
+                <li>Emergencies and exceptional circumstances will be handled on a case by case basis</li>
               </ul>
             </section>
 
@@ -98,7 +98,7 @@ export default function TermsPage() {
             <section>
               <h2 className="mb-4 text-2xl font-semibold text-neutral-900">8. Liability</h2>
               <ul className="list-disc space-y-2 pl-6">
-                <li><strong>Professional Service:</strong> We use professional-grade products and techniques. Results may vary based on hair condition and type</li>
+                <li><strong>Professional Service:</strong> We use professional grade products and techniques. Results may vary based on hair condition and type</li>
                 <li><strong>Allergies & Reactions:</strong> We are not liable for allergic reactions if you fail to disclose known allergies or decline a patch test</li>
                 <li><strong>Personal Belongings:</strong> We are not responsible for loss or damage to personal items brought to the salon</li>
                 <li><strong>Limitation:</strong> Our liability is limited to the price paid for the service in question</li>

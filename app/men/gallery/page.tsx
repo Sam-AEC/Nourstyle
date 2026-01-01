@@ -9,7 +9,7 @@ import { imageConfig } from "@/config/images";
 import { blurDataURL } from "@/lib/image-utils";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Gallery - Men's Haircuts & Grooming",
+  title: "Gallery, Men's Haircuts and Grooming",
   description: "Browse our portfolio of men's haircuts, fades, and beard grooming. Real results from our Amsterdam barbershop.",
   path: "/men/gallery",
 });
@@ -78,7 +78,7 @@ export default function MenGalleryPage() {
           {/* Placeholder Note */}
           <div className="mt-12 rounded-lg border border-men-border bg-men-surface p-8 text-center">
             <p className="text-men-text-muted">
-              📸 More photos coming soon! This gallery will showcase real client results.
+              More photos coming soon. This gallery will showcase real client results.
             </p>
           </div>
         </div>

@@ -7,9 +7,9 @@
 
 export const brand = {
   // Basic Info
-  name: "NourStyle",
-  tagline: "Your Personal Touch in Hair & Style",
-  description: "Home-based hair salon in Amsterdam offering personalized styling for women and professional grooming for men.",
+  name: "𝑁𝑜𝑢𝑟 𝐻𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
+  tagline: "Your Personal Touch in Hair and Style",
+  description: "Home based hair salon in Amsterdam offering personalized styling for women and professional grooming for men.",
 
   // Contact Information
   contact: {
@@ -18,7 +18,7 @@ export const brand = {
     email: "hello@nourstyle.nl",
     address: {
       street: "Example Street 123",
-      neighborhood: "Nieuw-West",
+      neighborhood: "Nieuw West",
       city: "Amsterdam",
       postalCode: "1067 AB",
       country: "Netherlands",
@@ -30,10 +30,10 @@ export const brand = {
     },
   },
 
-  // Booking is controlled via calendar - no fixed hours
+  // Booking is controlled via calendar with no fixed hours
   // Customers book through the calendar system where you control availability directly
 
-  // Social Media - Separate Instagram accounts for Women and Men sections
+  // Social Media separate Instagram accounts for Women and Men sections
   social: {
     instagram: {
       women: process.env.NEXT_PUBLIC_INSTAGRAM_WOMEN || "https://instagram.com/nourstyle_women",
@@ -48,7 +48,7 @@ export const brand = {
     // Update with your Fresha, Booksy, or other booking platform URL
     // URL for the internal booking page
     url: "/book",
-    note: "Easy online booking - Choose your service and preferred time",
+    note: "Easy online booking. Choose your service and preferred time",
   },
 
   // Call-to-Action Text
@@ -75,7 +75,7 @@ export const brand = {
 
   // About the Salon
   about: {
-    tagline: "One-on-one attention in a private, professional setting",
+    tagline: "One on one attention in a private, professional setting",
     yearEstablished: "2022",
     experience: "3+ years",
     certifications: [
@@ -83,7 +83,7 @@ export const brand = {
       "Color Specialist Certification",
       "Barber Training Certificate",
     ],
-    approach: "I believe in listening first - through thorough consultation, I ensure you get exactly the look you want. Whether it's a transformative color or a sharp fade, I'm committed to delivering salon-quality results in a relaxed, personalized environment.",
+    approach: "I believe in listening first. Through thorough consultation, I ensure you get exactly the look you want. Whether it is a transformative color or a sharp fade, I am committed to delivering salon quality results in a relaxed, personalized environment.",
   },
 
   // SEO

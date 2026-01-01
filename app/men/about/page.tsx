@@ -7,7 +7,7 @@ import { generateMetadata, siteConfig } from "@/config/site";
 import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
-  title: "About - Your Amsterdam Barber",
+  title: "About Your Amsterdam Barber",
   description: `Meet your barber. ${brand.about.experience} of professional grooming expertise in Amsterdam. Modern cuts, classic service.`,
   path: "/men/about",
 });
@@ -58,7 +58,7 @@ export default function MenAboutPage() {
                 </p>
 
                 <p>
-                  I opened this private barbershop in {brand.about.yearEstablished} because I believe you shouldn't have to wait in line for a great haircut. Here, you get my full attention - no distractions, no rush, just professional service.
+                  I opened this private barbershop in {brand.about.yearEstablished} because I believe you shouldn't have to wait in line for a great haircut. Here, you get my full attention. No distractions, no rush, just professional service.
                 </p>
               </div>
 
@@ -103,7 +103,7 @@ export default function MenAboutPage() {
               </div>
               <h3 className="mb-3 text-xl font-semibold">No Wait, No Hassle</h3>
               <p className="text-men-text-muted">
-                Your appointment time is your time. Private one-on-one service means you're in and out efficiently.
+                Your appointment time is your time. Private one on one service means you are in and out efficiently.
               </p>
             </div>
 

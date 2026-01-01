@@ -1,8 +1,9 @@
 import { BookingWidget } from "@/components/shared/BookingWidget";
+import { brand } from "@/config/brand";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Book Appointment | NourStyle",
+    title: `Book Appointment | ${brand.name}`,
     description: "Schedule your hair appointment online. Flexible hours available.",
 };
 

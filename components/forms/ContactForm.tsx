@@ -50,7 +50,7 @@ export function ContactForm({ section, services }: ContactFormProps) {
         },
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject: `New ${section === "women" ? "Women's" : "Men's"} Service Inquiry - ${data.service}`,
+          subject: `New ${section === "women" ? "Women's" : "Men's"} Service Inquiry for ${data.service}`,
           from_name: data.name,
           email: data.email,
           phone: data.phone,

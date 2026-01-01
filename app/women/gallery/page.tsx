@@ -9,7 +9,7 @@ import { imageConfig } from "@/config/images";
 import { blurDataURL } from "@/lib/image-utils";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Gallery - Women's Hair Transformations",
+  title: "Gallery, Women's Hair Transformations",
   description: "Browse our portfolio of women's haircuts, color transformations, balayage, and special occasion styles. Real results from our Amsterdam salon.",
   path: "/women/gallery",
 });
@@ -78,7 +78,7 @@ export default function WomenGalleryPage() {
           {/* Placeholder Note */}
           <div className="mt-12 rounded-lg border border-women-border bg-women-surface p-8 text-center">
             <p className="text-women-text-muted">
-              📸 More photos coming soon! This gallery will showcase real client transformations.
+              More photos coming soon. This gallery will showcase real client transformations.
             </p>
           </div>
         </div>

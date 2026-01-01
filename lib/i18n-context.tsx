@@ -50,11 +50,11 @@ const dictionaries: Record<Locale, Dictionary> = {
             }
         },
         why_choose: {
-            title: "Why Choose NourStyle?",
-            subtitle: "One-on-one attention in a private, professional setting.",
+            title: "Why Choose 𝑁𝑜𝑢𝑟 𝐻𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡?",
+            subtitle: "One on one attention in a private, professional setting.",
             expert_title: "Expert Styling",
             expert_desc: "Professional experience with all hair types and the latest techniques.",
-            attention_title: "One-on-One Attention",
+            attention_title: "One on One Attention",
             attention_desc: "No crowded salon, no distractions. Just you and your stylist.",
             booking_title: "Easy Booking",
             booking_desc: "Book online 24/7, flexible hours, and convenient location."
@@ -118,11 +118,11 @@ const dictionaries: Record<Locale, Dictionary> = {
             }
         },
         why_choose: {
-            title: "Waarom NourStyle?",
-            subtitle: "Een-op-een aandacht in een prive, professionele setting.",
+            title: "Waarom 𝑁𝑜𝑢𝑟 𝐻𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡?",
+            subtitle: "Een op een aandacht in een prive, professionele setting.",
             expert_title: "Vakkundige Styling",
             expert_desc: "Professionele ervaring met alle haartypes en de nieuwste technieken.",
-            attention_title: "Een-op-een Aandacht",
+            attention_title: "Een op een Aandacht",
             attention_desc: "Geen drukke salon, geen afleiding. Alleen jij en je stylist.",
             booking_title: "Eenvoudig Boeken",
             booking_desc: "Boek 24/7 online, flexibele tijden en een handige locatie."
@@ -141,7 +141,7 @@ const dictionaries: Record<Locale, Dictionary> = {
                 },
                 "women-cut-style": {
                     name: "Dames Knippen & Stylen",
-                    description: "Persoonlijke knipbeurt inclusief consult, wassen, precisieknip en blow-dry styling. Afgestemd op je gezichtsvorm en lifestyle."
+                    description: "Persoonlijke knipbeurt inclusief consult, wassen, precisieknip en blow dry styling. Afgestemd op je gezichtsvorm en lifestyle."
                 },
                 "women-cut-only": {
                     name: "Alleen Knippen",
@@ -149,7 +149,7 @@ const dictionaries: Record<Locale, Dictionary> = {
                 },
                 "women-blowdry": {
                     name: "Wassen & Fohnen",
-                    description: "Luxe wasbeurt met professionele blow-dry styling."
+                    description: "Luxe wasbeurt met professionele blow dry styling."
                 },
                 "women-special-styling": {
                     name: "Feeststyling",
@@ -165,7 +165,7 @@ const dictionaries: Record<Locale, Dictionary> = {
                 },
                 "women-highlights": {
                     name: "Deel Highlights",
-                    description: "Folies voor dimensie en helderheid. Inclusief toner en blow-dry."
+                    description: "Folies voor dimensie en helderheid. Inclusief toner en blow dry."
                 },
                 "women-root-touch": {
                     name: "Uitgroei Bijwerken",
@@ -177,7 +177,7 @@ const dictionaries: Record<Locale, Dictionary> = {
                 },
                 "women-deep-conditioning": {
                     name: "Diep Conditionerende Behandeling",
-                    description: "Intensieve hydratatie- en herstelbehandeling voor beschadigd of droog haar."
+                    description: "Intensieve hydratatie en herstelbehandeling voor beschadigd of droog haar."
                 },
                 "men-haircut": {
                     name: "Herenknipbeurt",
@@ -205,7 +205,7 @@ const dictionaries: Record<Locale, Dictionary> = {
                 },
                 "men-combo": {
                     name: "Knipbeurt + Baard Combo",
-                    description: "Complete grooming package - knipbeurt en baardtrim."
+                    description: "Complete grooming package. Knipbeurt en baardtrim."
                 },
                 "men-full-service": {
                     name: "Complete Grooming Service",

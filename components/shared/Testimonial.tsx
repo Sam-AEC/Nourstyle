@@ -102,7 +102,7 @@ export function TestimonialSimple({
         ))}
       </div>
       <p className="italic">"{text}"</p>
-      <cite className="not-italic font-semibold">— {name}</cite>
+      <cite className="not-italic font-semibold">By {name}</cite>
     </blockquote>
   );
 }

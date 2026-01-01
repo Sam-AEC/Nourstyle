@@ -4,7 +4,7 @@ import { brand } from "@/config/brand";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for NourStyle Salon. Learn how we collect, use, and protect your personal information.",
+  description: `Privacy policy for ${brand.name}. Learn how we collect, use, and protect your personal information.`,
 };
 
 export default function PrivacyPage() {
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <div className="container py-16">
         <div className="mx-auto max-w-4xl">
           <Link href="/" className="mb-8 inline-block text-sm text-neutral-600 hover:text-neutral-900">
-            ← Back to Home
+            Back to Home
           </Link>
 
           <h1 className="mb-8 text-4xl font-bold">Privacy Policy</h1>
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
               <ul className="list-disc space-y-2 pl-6">
                 <li><strong>Contract:</strong> To fulfill our agreement to provide salon services</li>
                 <li><strong>Legitimate Interest:</strong> To operate and improve our business</li>
-                <li><strong>Consent:</strong> When you opt-in to marketing communications (you can withdraw consent anytime)</li>
+                <li><strong>Consent:</strong> When you opt in to marketing communications (you can withdraw consent anytime)</li>
                 <li><strong>Legal Obligation:</strong> To comply with tax and business regulations</li>
               </ul>
             </section>
@@ -70,7 +70,7 @@ export default function PrivacyPage() {
                 We do not sell your personal data. We may share your information with:
               </p>
               <ul className="list-disc space-y-2 pl-6">
-                <li><strong>Service Providers:</strong> Third-party services that help us operate our business (e.g., Web3Forms for contact forms, booking platforms)</li>
+                <li><strong>Service Providers:</strong> Third party services that help us operate our business (e.g., Web3Forms for contact forms, booking platforms)</li>
                 <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
               </ul>
             </section>
@@ -90,7 +90,7 @@ export default function PrivacyPage() {
                 <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
                 <li><strong>Erasure:</strong> Request deletion of your data (subject to legal obligations)</li>
                 <li><strong>Restriction:</strong> Limit how we use your data</li>
-                <li><strong>Portability:</strong> Receive your data in a structured, machine-readable format</li>
+                <li><strong>Portability:</strong> Receive your data in a structured, machine readable format</li>
                 <li><strong>Objection:</strong> Object to certain types of processing</li>
                 <li><strong>Withdraw Consent:</strong> If processing is based on consent</li>
               </ul>
@@ -114,9 +114,9 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="mb-4 text-2xl font-semibold text-neutral-900">10. Third-Party Links</h2>
+              <h2 className="mb-4 text-2xl font-semibold text-neutral-900">10. Third Party Links</h2>
               <p>
-                Our website may contain links to third-party websites (e.g., Instagram, booking platforms). We are not responsible for the privacy practices of these external sites.
+                Our website may contain links to third party websites (e.g., Instagram, booking platforms). We are not responsible for the privacy practices of these external sites.
               </p>
             </section>
 

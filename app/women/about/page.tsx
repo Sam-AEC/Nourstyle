@@ -7,7 +7,7 @@ import { generateMetadata, siteConfig } from "@/config/site";
 import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
-  title: "About Us - Your Amsterdam Hair Stylist",
+  title: "About Us, Your Amsterdam Hair Stylist",
   description: `Meet your stylist. ${brand.about.experience} of professional hair expertise, specializing in women's cuts and color in a private Amsterdam salon.`,
   path: "/women/about",
 });
@@ -58,7 +58,7 @@ export default function WomenAboutPage() {
                 </p>
 
                 <p>
-                  My home salon was founded in {brand.about.yearEstablished} to offer an alternative to crowded, rushed appointments. Here, it's just you and me - no distractions, no waiting, just quality time focused on your hair goals.
+                  My home salon was founded in {brand.about.yearEstablished} to offer an alternative to crowded, rushed appointments. Here, it is just you and me. No distractions, no waiting, just quality time focused on your hair goals.
                 </p>
               </div>
 
@@ -113,7 +113,7 @@ export default function WomenAboutPage() {
               </div>
               <h3 className="mb-3 text-xl font-semibold">Premium Products</h3>
               <p className="text-women-text-muted">
-                Only professional-grade products from L'Oréal, Schwarzkopf, and Redken. Your hair health is a priority.
+                Only professional grade products from L'Oréal, Schwarzkopf, and Redken. Your hair health is a priority.
               </p>
             </div>
           </div>

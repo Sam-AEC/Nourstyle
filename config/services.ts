@@ -22,7 +22,7 @@ export const womenServices: Service[] = [
     id: "women-free-consultation",
     name: "Free Consultation",
     description: "Complimentary hair consultation to discuss your goals, assess your hair type, and recommend the best services for you. No obligation.",
-    duration: "15-20 min",
+    duration: "15 to 20 min",
     price: "FREE",
     category: "Consultation",
     popular: true,
@@ -32,7 +32,7 @@ export const womenServices: Service[] = [
   {
     id: "women-cut-style",
     name: "Women's Cut & Style",
-    description: "Personalized haircut including consultation, wash, precision cut, and blow-dry styling. Tailored to your face shape and lifestyle.",
+    description: "Personalized haircut including consultation, wash, precision cut, and blow dry styling. Tailored to your face shape and lifestyle.",
     duration: "60 min",
     price: "€50",
     category: "Cuts & Styling",
@@ -49,7 +49,7 @@ export const womenServices: Service[] = [
   {
     id: "women-blowdry",
     name: "Wash & Blow Dry",
-    description: "Luxurious hair wash with professional blow-dry styling.",
+    description: "Luxurious hair wash with professional blow dry styling.",
     duration: "30 min",
     price: "€25",
     category: "Cuts & Styling",
@@ -76,7 +76,7 @@ export const womenServices: Service[] = [
   {
     id: "women-balayage",
     name: "Balayage / Ombre",
-    description: "Hand-painted highlights for a natural, sun-kissed look. Includes toner and styling.",
+    description: "Hand painted highlights for a natural, sun kissed look. Includes toner and styling.",
     duration: "3 hrs",
     price: "from €120",
     category: "Color",
@@ -85,15 +85,15 @@ export const womenServices: Service[] = [
   {
     id: "women-highlights",
     name: "Partial Highlights",
-    description: "Foil highlights for dimension and brightness. Includes toner and blow-dry.",
+    description: "Foil highlights for dimension and brightness. Includes toner and blow dry.",
     duration: "2 hrs",
     price: "from €85",
     category: "Color",
   },
   {
     id: "women-root-touch",
-    name: "Root Touch-Up",
-    description: "Color refresh for grown-out roots. Quick and maintenance-friendly.",
+    name: "Root Touch Up",
+    description: "Color refresh for grown out roots. Quick and maintenance friendly.",
     duration: "90 min",
     price: "€65",
     category: "Color",
@@ -150,7 +150,7 @@ export const menServices: Service[] = [
   {
     id: "men-kids-cut",
     name: "Kids' Haircut (Under 12)",
-    description: "Patient, kid-friendly haircut service.",
+    description: "Patient, kid friendly haircut service.",
     duration: "30 min",
     price: "€20",
     category: "Haircuts",
@@ -176,7 +176,7 @@ export const menServices: Service[] = [
   {
     id: "men-combo",
     name: "Haircut + Beard Combo",
-    description: "Complete grooming package - haircut and beard trim.",
+    description: "Complete grooming package. Haircut and beard trim.",
     duration: "60 min",
     price: "€40",
     category: "Packages",
@@ -211,19 +211,19 @@ export const getPopularServices = (services: Service[]) => {
 // Pricing notes and policies
 export const pricingNotes = {
   women: [
-    "Prices may vary for extra-long or very thick hair",
+    "Prices may vary for extra long or very thick hair",
     "Color correction pricing available upon consultation",
     "All color services include a complimentary consultation",
     "Package deals available for regular clients",
   ],
   men: [
-    "Walk-ins welcome, but appointments recommended",
+    "Walk ins are welcome, but appointments are recommended",
     "Regular clients receive loyalty discounts",
     "Student discount available (show valid ID)",
   ],
   general: [
     "All prices are indicative and may vary based on hair length, thickness, and service complexity",
-    "24-hour cancellation policy applies",
+    "24 hour cancellation policy applies",
     "Payments accepted: Cash, Card, and Digital (iDeal/Tikkie)",
   ],
 };
@@ -232,5 +232,5 @@ export const pricingNotes = {
 export const cancellationPolicy = {
   notice: "24 hours",
   fee: "50% of service price",
-  text: "Please provide at least 24 hours notice to cancel or reschedule your appointment. Late cancellations or no-shows may incur a fee of 50% of the service price.",
+  text: "Please provide at least 24 hours notice to cancel or reschedule your appointment. Late cancellations or no shows may incur a fee of 50% of the service price.",
 };
