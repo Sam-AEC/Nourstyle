@@ -19,8 +19,8 @@ export function Footer({ section }: FooterProps) {
         section === "women"
           ? "border-women-border bg-women-surface"
           : section === "men"
-          ? "border-men-border bg-men-surface"
-          : "border-neutral-100 bg-neutral-100"
+            ? "border-men-border bg-men-surface"
+            : "border-neutral-100 bg-neutral-100"
       )}
     >
       <div className="container py-12 md:py-16">
@@ -45,7 +45,7 @@ export function Footer({ section }: FooterProps) {
             {/* Social Links */}
             <div className="flex gap-4">
               <a
-                href={brand.social.instagram}
+                href={section === "women" ? brand.social.instagram.women : section === "men" ? brand.social.instagram.men : brand.social.instagram.women}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -53,8 +53,8 @@ export function Footer({ section }: FooterProps) {
                   section === "women"
                     ? "hover:bg-women-primary/10"
                     : section === "men"
-                    ? "hover:bg-men-primary/10"
-                    : "hover:bg-neutral-200"
+                      ? "hover:bg-men-primary/10"
+                      : "hover:bg-neutral-200"
                 )}
                 aria-label="Instagram"
               >
@@ -69,8 +69,8 @@ export function Footer({ section }: FooterProps) {
                   section === "women"
                     ? "hover:bg-women-primary/10"
                     : section === "men"
-                    ? "hover:bg-men-primary/10"
-                    : "hover:bg-neutral-200"
+                      ? "hover:bg-men-primary/10"
+                      : "hover:bg-neutral-200"
                 )}
                 aria-label="Facebook"
               >
@@ -114,20 +114,29 @@ export function Footer({ section }: FooterProps) {
             </div>
           </div>
 
-          {/* Hours */}
+          {/* Booking */}
           <div>
-            <h4 className="mb-4 font-semibold">Opening Hours</h4>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-start gap-2">
-                <Clock className="mt-0.5 h-4 w-4 flex-shrink-0" />
-                <div>
-                  <p>Tue-Fri: {brand.hours.tuesday}</p>
-                  <p>Sat: {brand.hours.saturday}</p>
-                  <p className={section === "men" ? "text-men-text-muted" : "text-women-text-muted"}>
-                    Sun-Mon: Closed
-                  </p>
-                </div>
-              </div>
+            <h4 className="mb-4 font-semibold">Book Appointment</h4>
+            <div className="space-y-3 text-sm">
+              <p className={section === "men" ? "text-men-text-muted" : "text-women-text-muted"}>
+                Flexible scheduling based on calendar availability.
+              </p>
+              <a
+                href={brand.booking.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors",
+                  section === "women"
+                    ? "bg-women-primary text-white hover:bg-women-primary/90"
+                    : section === "men"
+                      ? "bg-men-primary text-white hover:bg-men-primary/90"
+                      : "bg-neutral-900 text-white hover:bg-neutral-800"
+                )}
+              >
+                <Clock className="h-4 w-4" />
+                Check Availability
+              </a>
             </div>
           </div>
         </div>
@@ -138,8 +147,8 @@ export function Footer({ section }: FooterProps) {
           section === "women"
             ? "border-women-border"
             : section === "men"
-            ? "border-men-border"
-            : "border-neutral-200"
+              ? "border-men-border"
+              : "border-neutral-200"
         )}>
           <p className={section === "men" ? "text-men-text-muted" : "text-women-text-muted"}>
             © {currentYear} {brand.name}. All rights reserved.

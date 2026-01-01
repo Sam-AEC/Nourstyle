@@ -91,13 +91,13 @@ export default function MenGalleryPage() {
               We share fresh cuts daily on Instagram. Follow us for style inspiration and grooming tips!
             </p>
             <a
-              href={brand.social.instagram}
+              href={brand.social.instagram.men}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-lg inline-flex items-center gap-2"
             >
               <Instagram className="h-5 w-5" />
-              Follow @{brand.social.instagram.split('/').pop()}
+              Follow @{brand.social.instagram.men.split('/').pop()}
               <ExternalLink className="h-4 w-4" />
             </a>
           </div>

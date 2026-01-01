@@ -91,13 +91,13 @@ export default function WomenGalleryPage() {
               We share fresh styles daily on Instagram. Follow us for before & afters, hair tips, and styling inspiration!
             </p>
             <a
-              href={brand.social.instagram}
+              href={brand.social.instagram.women}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-lg inline-flex items-center gap-2"
             >
               <Instagram className="h-5 w-5" />
-              Follow @{brand.social.instagram.split('/').pop()}
+              Follow @{brand.social.instagram.women.split('/').pop()}
               <ExternalLink className="h-4 w-4" />
             </a>
           </div>
