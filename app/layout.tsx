@@ -4,6 +4,8 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/shared/Toast";
+import { GoogleAnalytics } from "@/components/shared/GoogleAnalytics";
+import { Providers } from "./providers";
 
 // Premium Typography Setup
 const fontHeading = Playfair_Display({
@@ -73,6 +75,7 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -97,13 +100,16 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black">
-          Skip to main content
-        </a>
-        <main id="main">
-          {children}
-        </main>
-        <Toaster />
+        <Providers>
+          <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+            Skip to main content
+          </a>
+          <main id="main">
+            {children}
+          </main>
+          <Toaster />
+          <GoogleAnalytics />
+        </Providers>
       </body>
     </html>
   );

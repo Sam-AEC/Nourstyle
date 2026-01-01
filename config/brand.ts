@@ -46,7 +46,8 @@ export const brand = {
   // Booking
   booking: {
     // Update with your Fresha, Booksy, or other booking platform URL
-    url: process.env.NEXT_PUBLIC_BOOKING_URL || "https://fresha.com/nourstyle",
+    // URL for the internal booking page
+    url: "/book",
     note: "Easy online booking - Choose your service and preferred time",
   },
 

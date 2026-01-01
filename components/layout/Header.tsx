@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Phone, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, ArrowRight, Globe } from "lucide-react";
 import { brand } from "@/config/brand";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useI18n } from "@/lib/i18n-context";
 
 interface HeaderProps {
   section: "women" | "men";
@@ -14,12 +15,25 @@ interface HeaderProps {
 
 export function Header({ section, navLinks }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { locale, setLocale, t } = useI18n();
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const toggleLocale = () => setLocale(locale === 'en' ? 'nl' : 'en');
 
-  const themeClass = section === "women" ? "theme-women" : "theme-men";
   const otherSection = section === "women" ? "men" : "women";
-  const otherSectionLabel = section === "women" ? "Switch to Men" : "Switch to Women";
+  const otherSectionLabel = t(section === "women" ? "nav.switch_men" : "nav.switch_women");
+
+  // Map the navLinks to use translated labels
+  // We infer the key from the href (e.g., /women/services -> nav.services)
+  const translatedLinks = navLinks.map(link => {
+    const key = `nav.${link.href.split('/').pop() || 'home'}`;
+    // Special case for root paths if needed, but 'home' covers it usually if href is just /women
+    const translationKey = link.href.endsWith(section) ? 'nav.home' : key;
+    return {
+      ...link,
+      label: t(translationKey)
+    };
+  });
 
   return (
     <header
@@ -47,7 +61,7 @@ export function Header({ section, navLinks }: HeaderProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
+            {translatedLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -66,6 +80,18 @@ export function Header({ section, navLinks }: HeaderProps) {
 
             <div className="h-4 w-px bg-neutral-200/50 mx-2" />
 
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLocale}
+              className={cn(
+                "flex items-center gap-1 text-sm font-medium transition-colors hover:opacity-80",
+                section === "women" ? "text-women-text" : "text-men-text"
+              )}
+            >
+              <Globe className="h-4 w-4" />
+              <span>{locale.toUpperCase()}</span>
+            </button>
+
             {/* Switch Section Link */}
             <Link
               href={`/${otherSection}`}
@@ -83,26 +109,40 @@ export function Header({ section, navLinks }: HeaderProps) {
               className="btn btn-primary btn-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
             >
               <Phone className="h-4 w-4" />
-              <span className="hidden lg:inline">Call Now</span>
+              <span className="hidden lg:inline">{brand.contact.phone}</span>
             </a>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className={cn(
-              "md:hidden p-2 rounded-full transition-colors",
-              section === "women" ? "hover:bg-women-primary/10 text-women-text" : "hover:bg-men-primary/10 text-men-text"
-            )}
-            aria-label="Toggle menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={toggleLocale}
+              className={cn(
+                "flex items-center gap-1 text-sm font-medium transition-colors hover:opacity-80",
+                section === "women" ? "text-women-text" : "text-men-text"
+              )}
+            >
+              <Globe className="h-4 w-4" />
+              <span>{locale.toUpperCase()}</span>
+            </button>
+
+            <button
+              onClick={toggleMobileMenu}
+              className={cn(
+                "p-2 rounded-full transition-colors",
+                section === "women" ? "hover:bg-women-primary/10 text-women-text" : "hover:bg-men-primary/10 text-men-text"
+              )}
+              aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -122,7 +162,7 @@ export function Header({ section, navLinks }: HeaderProps) {
             )}
           >
             <nav className="container flex flex-col gap-6 py-8">
-              {navLinks.map((link, i) => (
+              {translatedLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: -20 }}
@@ -169,7 +209,7 @@ export function Header({ section, navLinks }: HeaderProps) {
                       : "border-men-primary/20 bg-men-primary/5 text-men-primary"
                   )}
                 >
-                  Switch to {otherSectionLabel}
+                  {otherSectionLabel}
                 </Link>
 
                 <a

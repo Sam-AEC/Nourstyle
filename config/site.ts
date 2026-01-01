@@ -5,6 +5,7 @@
  */
 
 import { brand } from "./brand";
+import { womenServices, menServices } from "./services";
 
 export const siteConfig = {
   name: brand.name,
@@ -172,6 +173,32 @@ export const siteConfig = {
       brand.social.instagram.men,
       brand.social.facebook,
     ].filter(Boolean),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Hair Services",
+      itemListElement: [
+        ...womenServices.map(service => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: service.name,
+            description: service.description,
+          },
+          price: service.price.includes('€') ? service.price.replace(/[^0-9]/g, '') : "0",
+          priceCurrency: "EUR"
+        })),
+        ...menServices.map(service => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: service.name,
+            description: service.description,
+          },
+          price: service.price.includes('€') ? service.price.replace(/[^0-9]/g, '') : "0",
+          priceCurrency: "EUR"
+        }))
+      ]
+    }
   },
 } as const;
 
@@ -192,16 +219,16 @@ export function generateMetadata({
   ogImage = siteConfig.ogImage,
   keywords = [],
   openGraph = {},
-}: MetadataProps): any { // Changed return type to 'any' as 'Metadata' is not defined in the provided context
+}: MetadataProps): any {
   return {
-    title: `${title} | ${siteConfig.name}`, // Added siteConfig.name back to title
+    title: `${title} | ${siteConfig.name}`,
     description,
-    keywords: keywords.length > 0 ? keywords : undefined, // siteConfig.keywords is not defined, so fallback to undefined
+    keywords: keywords.length > 0 ? keywords : undefined,
     openGraph: {
       title,
       description,
       url: `${siteConfig.url}${path}`,
-      siteName: siteConfig.name, // Added siteName back
+      siteName: siteConfig.name,
       images: [
         {
           url: ogImage,
@@ -210,8 +237,8 @@ export function generateMetadata({
           alt: title,
         },
       ],
-      locale: "en_NL", // Added locale back
-      type: "website", // Added type back
+      locale: "en_NL",
+      type: "website",
       ...openGraph,
     },
     twitter: {
@@ -219,7 +246,7 @@ export function generateMetadata({
       title,
       description,
       images: [ogImage],
-      creator: siteConfig.twitterHandle, // Added creator back
+      creator: siteConfig.twitterHandle,
     },
     alternates: {
       canonical: `${siteConfig.url}${path}`,

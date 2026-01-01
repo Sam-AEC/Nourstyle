@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n-context";
 
 interface HeroProps {
   title: string;
@@ -45,9 +46,9 @@ const itemVariants = {
 };
 
 export function Hero({
-  title,
-  subtitle,
-  description,
+  title: defaultTitle,
+  subtitle: defaultSubtitle,
+  description: defaultDescription,
   primaryCTA,
   secondaryCTA,
   imageSrc,
@@ -55,10 +56,19 @@ export function Hero({
   section,
   overlay = true,
 }: HeroProps) {
+  const { t } = useI18n();
+
+  // Dynamic translation logic
+  const titleKey = `hero.${section}.title`;
+  const subtitleKey = `hero.${section}.subtitle`;
+
+  const title = t(titleKey) !== titleKey ? t(titleKey) : defaultTitle;
+  const subtitle = t(subtitleKey) !== subtitleKey ? t(subtitleKey) : defaultSubtitle;
+  const description = defaultDescription;
+
   return (
     <section className="hero relative overflow-hidden">
-      {/* Background Image with Parallax Scale Effect */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -75,24 +85,23 @@ export function Hero({
         {overlay && <div className="hero-overlay backdrop-blur-[2px]" />}
       </motion.div>
 
-      {/* Content */}
       <div className="container relative z-10 text-center">
-        <motion.div 
+        <motion.div
           className="mx-auto max-w-4xl space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {subtitle && (
-            <motion.p 
-              variants={itemVariants} 
+            <motion.p
+              variants={itemVariants}
               className="text-sm font-semibold uppercase tracking-[0.2em] text-white/90 md:text-base"
             >
               {subtitle}
             </motion.p>
           )}
 
-          <motion.h1 
+          <motion.h1
             variants={itemVariants}
             className="text-balance text-5xl font-bold font-heading text-white drop-shadow-lg md:text-7xl lg:text-8xl"
           >
@@ -100,7 +109,7 @@ export function Hero({
           </motion.h1>
 
           {description && (
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="mx-auto max-w-2xl text-lg text-white/95 md:text-xl font-light leading-relaxed"
             >
@@ -108,7 +117,6 @@ export function Hero({
             </motion.p>
           )}
 
-          {/* CTAs */}
           {(primaryCTA || secondaryCTA) && (
             <motion.div variants={itemVariants} className="flex flex-col items-center justify-center gap-4 pt-8 sm:flex-row">
               {primaryCTA && (
@@ -141,18 +149,17 @@ export function Hero({
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <div className="h-12 w-6 rounded-full border border-white/30 bg-white/5 backdrop-blur-sm">
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="mx-auto mt-2 h-1.5 w-1.5 rounded-full bg-white" 
+            className="mx-auto mt-2 h-1.5 w-1.5 rounded-full bg-white"
           />
         </div>
       </motion.div>

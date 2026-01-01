@@ -1,0 +1,16 @@
+{
+    "name": "NourStyle Hair Salon",
+    "short_name": "NourStyle",
+    "description": "Premium hair salon in Amsterdam for men and women.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2A5C5A",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        }
+    ]
+}
