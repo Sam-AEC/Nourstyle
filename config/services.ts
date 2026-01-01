@@ -17,6 +17,17 @@ export interface Service {
 
 // Women's Services
 export const womenServices: Service[] = [
+  // Free Consultation - Lead generator for new clients
+  {
+    id: "women-free-consultation",
+    name: "Free Consultation",
+    description: "Complimentary hair consultation to discuss your goals, assess your hair type, and recommend the best services for you. No obligation.",
+    duration: "15-20 min",
+    price: "FREE",
+    category: "Consultation",
+    popular: true,
+  },
+
   // Cuts & Styling
   {
     id: "women-cut-style",

@@ -5,6 +5,7 @@ import { Hero } from "@/components/shared/Hero";
 import { ServiceCard } from "@/components/shared/ServiceCard";
 import { Testimonial } from "@/components/shared/Testimonial";
 import { CTASection } from "@/components/shared/CTASection";
+import { BrandLogos } from "@/components/shared/BrandLogos";
 import { brand, getWhatsAppLink } from "@/config/brand";
 import { womenServices, getPopularServices } from "@/config/services";
 import { siteConfig, generateMetadata } from "@/config/site";
@@ -39,6 +40,9 @@ export default function WomenHomePage() {
         imageAlt="Women's Hair Styling"
         section="women"
       />
+
+      {/* Brand Logos */}
+      <BrandLogos section="women" />
 
       {/* Why Choose Us */}
       <section className="section">
@@ -150,7 +154,7 @@ export default function WomenHomePage() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href={brand.social.instagram}
+                href={brand.social.instagram.women}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-lg"

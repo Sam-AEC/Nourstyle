@@ -48,7 +48,7 @@ export const siteConfig = {
     women: [
       {
         question: "What hair services do you specialize in?",
-        answer: "I specialize in all aspects of women's hair care - precision cuts, creative coloring (balayage, highlights, full color), and special occasion styling. With over 10 years of experience, I've worked with all hair types and textures.",
+        answer: "I specialize in all aspects of women's hair care - precision cuts, creative coloring (balayage, highlights, full color), and special occasion styling. Since 2022, I've been dedicated to perfecting my craft and have worked with all hair types and textures.",
       },
       {
         question: "Is a home salon as professional as a traditional salon?",
@@ -166,23 +166,10 @@ export const siteConfig = {
       latitude: brand.contact.coordinates.lat,
       longitude: brand.contact.coordinates.lng,
     },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "10:00",
-        closes: "19:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "10:00",
-        closes: "17:00",
-      },
-    ],
     priceRange: "€€",
     sameAs: [
-      brand.social.instagram,
+      brand.social.instagram.women,
+      brand.social.instagram.men,
       brand.social.facebook,
     ].filter(Boolean),
   },

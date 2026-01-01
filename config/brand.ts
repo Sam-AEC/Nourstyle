@@ -30,20 +30,15 @@ export const brand = {
     },
   },
 
-  // Operating Hours
-  hours: {
-    monday: "Closed",
-    tuesday: "10:00 - 19:00",
-    wednesday: "10:00 - 19:00",
-    thursday: "10:00 - 19:00",
-    friday: "10:00 - 19:00",
-    saturday: "10:00 - 17:00",
-    sunday: "Closed",
-  },
+  // Booking is controlled via calendar - no fixed hours
+  // Customers book through the calendar system where you control availability directly
 
-  // Social Media
+  // Social Media - Separate Instagram accounts for Women and Men sections
   social: {
-    instagram: "https://instagram.com/nourstyle",
+    instagram: {
+      women: process.env.NEXT_PUBLIC_INSTAGRAM_WOMEN || "https://instagram.com/nourstyle_women",
+      men: process.env.NEXT_PUBLIC_INSTAGRAM_MEN || "https://instagram.com/nourstyle_men",
+    },
     facebook: "https://facebook.com/nourstyle",
     // Add more as needed
   },
@@ -81,7 +76,7 @@ export const brand = {
   about: {
     tagline: "One-on-one attention in a private, professional setting",
     yearEstablished: "2022",
-    experience: "10+ years",
+    experience: "3+ years",
     certifications: [
       "Licensed Professional Stylist",
       "Color Specialist Certification",

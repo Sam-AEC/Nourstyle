@@ -128,19 +128,22 @@ export default function WomenContactPage() {
                     </div>
                   </div>
 
-                  {/* Hours */}
+                  {/* Booking Availability */}
                   <div className="flex gap-4">
                     <Clock className="mt-1 h-6 w-6 flex-shrink-0 text-women-primary" />
                     <div>
-                      <h3 className="mb-2 font-semibold">Opening Hours</h3>
-                      <div className="space-y-1 text-sm text-women-text-muted">
-                        <p>Tuesday - Friday: {brand.hours.tuesday}</p>
-                        <p>Saturday: {brand.hours.saturday}</p>
-                        <p>Sunday - Monday: Closed</p>
-                      </div>
-                      <p className="mt-3 text-sm italic text-women-text-muted">
-                        By appointment only
+                      <h3 className="mb-2 font-semibold">Flexible Scheduling</h3>
+                      <p className="text-sm text-women-text-muted">
+                        Appointments available based on calendar availability. Book online to see real-time open slots.
                       </p>
+                      <a
+                        href={brand.booking.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1 text-sm text-women-primary hover:underline"
+                      >
+                        Check Available Times →
+                      </a>
                     </div>
                   </div>
 

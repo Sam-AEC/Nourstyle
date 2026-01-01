@@ -150,7 +150,7 @@ export default function MenHomePage() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href={brand.social.instagram}
+                href={brand.social.instagram.men}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-lg"
