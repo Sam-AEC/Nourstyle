@@ -52,7 +52,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       },
     },
     why_choose: {
-      title: "Why Choose 𝑁𝑜𝑢𝑟 𝐇𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
+      title: "Why Choose Nour Hairstylist",
       subtitle: "One on one attention in a private, professional setting.",
       expert_title: "Expert Styling",
       expert_desc: "Professional experience with all hair types and the latest techniques.",
@@ -147,7 +147,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       },
     },
     why_choose: {
-      title: "Waarom 𝑁𝑜𝑢𝑟 𝐇𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
+      title: "Waarom Nour Hairstylist",
       subtitle: "Een op een aandacht in een prive, professionele setting.",
       expert_title: "Vakkundige Styling",
       expert_desc: "Professionele ervaring met alle haartypes en de nieuwste technieken.",

@@ -7,7 +7,7 @@
 
 export const brand = {
   // Basic Info
-  name: "𝑁𝑜𝑢𝑟 𝐇𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
+  name: "Nour Hairstylist",
   tagline: "Personal hair and style care",
   description: "Private hair studio in Amsterdam for women and men.",
 

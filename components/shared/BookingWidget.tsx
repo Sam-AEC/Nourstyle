@@ -12,7 +12,7 @@ export function BookingWidget({ calLink }: BookingWidgetProps) {
   const [isLoading, setIsLoading] = useState(true);
   const { t } = useI18n();
 
-  const defaultCalLink = "https://cal.com/𝑁𝑜𝑢𝑟𝐇𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡";
+  const defaultCalLink = "https://cal.com/nourhairstylist";
 
   // Fallback to a demo link if environment variable is missing
   const finalLink = process.env.NEXT_PUBLIC_CAL_LINK || calLink || defaultCalLink;
