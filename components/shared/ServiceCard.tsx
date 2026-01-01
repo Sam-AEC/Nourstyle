@@ -4,7 +4,6 @@ import { Clock, Euro } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Service } from "@/config/services";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 
 interface ServiceCardProps {
   service: Service;
@@ -102,6 +101,6 @@ export function ServiceCardSkeleton() {
           <div className="h-6 w-16 rounded bg-neutral-200" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
