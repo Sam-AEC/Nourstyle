@@ -7,6 +7,16 @@
 import { brand } from "./brand";
 import { womenServices, menServices } from "./services";
 
+export interface FooterLink {
+  href: string;
+  label: string;
+}
+
+const footerLinks: FooterLink[] = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+];
+
 export const siteConfig = {
   name: brand.name,
   description: brand.description,
@@ -39,10 +49,7 @@ export const siteConfig = {
   ],
 
   // Footer Links (Shared)
-  footerLinks: [
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/terms", label: "Terms of Service" },
-  ],
+  footerLinks,
 
   // FAQ Data
   faq: {

@@ -11,6 +11,9 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ service, section }: ServiceCardProps) {
+  const hasCurrency = service.price.includes("€");
+  const displayPrice = hasCurrency ? service.price.replace("€", "").trim() : service.price;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -78,8 +81,8 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
               section === "women" ? "text-women-primary" : "text-men-primary"
             )}
           >
-            <Euro className="h-5 w-5 stroke-[2.5]" />
-            <span>{service.price.replace("€", "")}</span>
+            {hasCurrency && <Euro className="h-5 w-5 stroke-[2.5]" />}
+            <span>{displayPrice}</span>
           </div>
         </div>
       </div>

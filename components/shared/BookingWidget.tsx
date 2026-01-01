@@ -12,9 +12,17 @@ export function BookingWidget({ calLink = "nourstyle" }: BookingWidgetProps) {
 
     // Fallback to a demo link if environment variable is missing
     const finalLink = process.env.NEXT_PUBLIC_CAL_LINK || calLink;
-    // Ensure we don't have double slashes if user puts 'cal.com/' in the env var
-    const cleanLink = finalLink.replace('cal.com/', '');
-    const embedUrl = `https://cal.com/${cleanLink}`;
+    // Normalize the link to a slug (strip protocol/host) and force embed mode
+    const normalizedLink = finalLink
+        .trim()
+        .replace(/^https?:\/\//i, "")
+        .replace(/^www\./i, "")
+        .replace(/^cal\.com\//i, "");
+    const baseUrl = `https://cal.com/${normalizedLink}`;
+    const hasEmbedParam = /[?&]embed=1/i.test(baseUrl);
+    const embedUrl = hasEmbedParam
+        ? baseUrl
+        : `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}embed=1`;
 
     return (
         <div className="flex flex-col gap-4 w-full h-full">
