@@ -133,7 +133,7 @@ export function Header({ section, navLinks }: HeaderProps) {
                 "p-2 rounded-full transition-colors",
                 section === "women" ? "hover:bg-women-primary/10 text-women-text" : "hover:bg-men-primary/10 text-men-text"
               )}
-              aria-label="Toggle menu"
+              aria-label={t("actions.menu")}
               aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
@@ -217,7 +217,7 @@ export function Header({ section, navLinks }: HeaderProps) {
                   className="btn btn-primary w-full justify-center rounded-xl py-4 text-lg shadow-lg"
                 >
                   <Phone className="h-5 w-5" />
-                  Call {brand.contact.phone}
+                  {t("actions.call")} {brand.contact.phone}
                 </a>
               </motion.div>
             </nav>

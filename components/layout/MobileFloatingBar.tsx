@@ -5,6 +5,7 @@ import { Phone, Calendar } from "lucide-react";
 import { brand } from "@/config/brand";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useI18n } from "@/lib/i18n-context";
 
 interface MobileFloatingBarProps {
   section: "women" | "men";
@@ -12,6 +13,7 @@ interface MobileFloatingBarProps {
 
 export function MobileFloatingBar({ section }: MobileFloatingBarProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +53,7 @@ export function MobileFloatingBar({ section }: MobileFloatingBarProps) {
               )}
             >
               <Phone className="h-5 w-5" />
-              Call
+              {t("actions.call")}
             </a>
             
             <a
@@ -66,7 +68,7 @@ export function MobileFloatingBar({ section }: MobileFloatingBarProps) {
               )}
             >
               <Calendar className="h-5 w-5" />
-              Book Appointment
+              {t("nav.book")}
             </a>
           </div>
         </motion.div>

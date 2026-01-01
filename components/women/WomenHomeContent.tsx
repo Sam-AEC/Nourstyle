@@ -14,9 +14,33 @@ import { imageConfig } from "@/config/images";
 import { useI18n } from "@/lib/i18n-context";
 
 export function WomenHomeContent() {
-    const { t } = useI18n();
+    const { locale, t } = useI18n();
     const popularServices = getPopularServices(womenServices);
-    const testimonials = siteConfig.testimonials.women;
+    const testimonials = locale === "nl"
+        ? [
+            {
+                id: 1,
+                name: "Sarah M.",
+                text: "Ik ging jaren naar dure salons, maar de persoonlijke aandacht hier is ongekend. Mijn balayage was nog nooit zo mooi.",
+                service: "Balayage",
+                rating: 5,
+            },
+            {
+                id: 2,
+                name: "Lisa K.",
+                text: "Eindelijk een stylist die echt luistert. Hij begreep precies wat ik wilde en leverde perfect. De prive setting is zo ontspannen.",
+                service: "Knipbeurt en Kleur",
+                rating: 5,
+            },
+            {
+                id: 3,
+                name: "Emma V.",
+                text: "Professioneel, kundig en heel makkelijk online te boeken. Mijn haarkleur is altijd consistent en mooi. Aanrader.",
+                service: "Volledige Kleuring",
+                rating: 5,
+            },
+        ]
+        : siteConfig.testimonials.women;
 
     return (
         <>
@@ -33,7 +57,7 @@ export function WomenHomeContent() {
                     href: "/women/services",
                 }}
                 imageSrc={imageConfig.womenHero}
-                imageAlt="Women's Hair Styling"
+                imageAlt={locale === "nl" ? "Dames haarstyling" : "Women hair styling"}
                 section="women"
             />
 

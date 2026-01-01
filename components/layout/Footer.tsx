@@ -14,6 +14,7 @@ interface FooterProps {
 export function Footer({ section }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const { t } = useI18n();
+  const footerLinks = siteConfig.footerLinks as { href: string; label: string }[];
 
   return (
     <footer
@@ -42,7 +43,7 @@ export function Footer({ section }: FooterProps) {
               "mb-4 max-w-md text-sm leading-relaxed",
               section === "men" ? "text-men-text-muted" : "text-women-text-muted"
             )}>
-              {brand.description}
+              {t("footer.about")}
             </p>
 
             {/* Social Links */}
@@ -158,7 +159,7 @@ export function Footer({ section }: FooterProps) {
           </p>
 
           <div className="flex gap-6">
-            {siteConfig.footerLinks.map((link) => (
+            {footerLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

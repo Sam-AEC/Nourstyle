@@ -6,6 +6,7 @@ import { Scissors, Sparkles, MapPin, Phone } from "lucide-react";
 import { brand } from "@/config/brand";
 import { imageConfig } from "@/config/images";
 import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n-context";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,6 +26,29 @@ const itemVariants = {
 };
 
 export default function HomePage() {
+  const { locale } = useI18n();
+  const content = locale === "nl"
+    ? {
+        menTitle: "Heren",
+        menSubtitle: "Verzorging, Fades, Baard",
+        menCta: "Ga naar de Barbershop",
+        menAlt: "Heren verzorging",
+        womenTitle: "Dames",
+        womenSubtitle: "Knippen, Kleur, Styling",
+        womenCta: "Ga naar de Salon",
+        womenAlt: "Dames haarstyling",
+      }
+    : {
+        menTitle: "Men",
+        menSubtitle: "Grooming, Fades, Beard",
+        menCta: "Enter Barbershop",
+        menAlt: "Men's Grooming Services",
+        womenTitle: "Women",
+        womenSubtitle: "Cuts, Color, Styling",
+        womenCta: "Enter Salon",
+        womenAlt: "Women's Hair Services",
+      };
+
   return (
     <main className="flex min-h-screen flex-col bg-neutral-900">
       {/* Logo Header - Floating Glass */}
@@ -55,14 +79,14 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             >
-              <Image
-                src={imageConfig.menHero}
-                alt="Men's Grooming Services"
-                fill
-                className="object-cover"
-                priority
-                quality={90}
-              />
+                <Image
+                  src={imageConfig.menHero}
+                  alt={content.menAlt}
+                  fill
+                  className="object-cover"
+                  priority
+                  quality={90}
+                />
               <div className="absolute inset-0 bg-gradient-to-t from-men-bg/90 via-men-primary/20 to-black/30 transition-all duration-700 group-hover:via-men-primary/30" />
             </motion.div>
           </div>
@@ -85,14 +109,14 @@ export default function HomePage() {
               variants={itemVariants}
               className="text-5xl font-bold font-heading mb-3 drop-shadow-xl md:text-7xl"
             >
-              Men
+              {content.menTitle}
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
               className="mb-8 text-lg font-medium text-white/90 tracking-wide uppercase text-shadow-sm md:text-xl"
             >
-              Grooming • Fades • Beard
+              {content.menSubtitle}
             </motion.p>
 
             <motion.div
@@ -100,7 +124,7 @@ export default function HomePage() {
               className="overflow-hidden rounded-full"
             >
               <span className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-3 text-lg font-bold text-men-bg shadow-lg transition-all duration-300 group-hover:bg-men-primary group-hover:text-white group-hover:shadow-men-primary/50 group-hover:shadow-2xl">
-                Enter Barbershop
+                {content.menCta}
               </span>
             </motion.div>
           </motion.div>
@@ -118,14 +142,14 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             >
-              <Image
-                src={imageConfig.womenHero}
-                alt="Women's Hair Services"
-                fill
-                className="object-cover"
-                priority
-                quality={90}
-              />
+                <Image
+                  src={imageConfig.womenHero}
+                  alt={content.womenAlt}
+                  fill
+                  className="object-cover"
+                  priority
+                  quality={90}
+                />
               <div className="absolute inset-0 bg-gradient-to-t from-women-primary/90 via-women-primary/20 to-black/30 transition-all duration-700 group-hover:via-women-primary/40" />
             </motion.div>
           </div>
@@ -148,14 +172,14 @@ export default function HomePage() {
               variants={itemVariants}
               className="text-5xl font-bold font-heading mb-3 drop-shadow-xl md:text-7xl"
             >
-              Women
+              {content.womenTitle}
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
               className="mb-8 text-lg font-medium text-white/90 tracking-wide uppercase text-shadow-sm md:text-xl"
             >
-              Cuts • Color • Styling
+              {content.womenSubtitle}
             </motion.p>
 
             <motion.div
@@ -163,7 +187,7 @@ export default function HomePage() {
               className="overflow-hidden rounded-full"
             >
               <span className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-3 text-lg font-bold text-women-primary shadow-lg transition-all duration-300 group-hover:bg-women-primary group-hover:text-white group-hover:shadow-women-primary/50 group-hover:shadow-2xl">
-                Enter Salon
+                {content.womenCta}
               </span>
             </motion.div>
           </motion.div>

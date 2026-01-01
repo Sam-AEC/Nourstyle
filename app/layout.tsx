@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/shared/Toast";
 import { GoogleAnalytics } from "@/components/shared/GoogleAnalytics";
 import { Providers } from "./providers";
+import { SkipLink } from "@/components/layout/SkipLink";
 
 // Premium Typography Setup
 const fontHeading = Playfair_Display({
@@ -101,9 +102,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black">
-            Skip to main content
-          </a>
+          <SkipLink />
           <main id="main">
             {children}
           </main>

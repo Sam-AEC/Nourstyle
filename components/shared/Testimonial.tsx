@@ -3,6 +3,7 @@
 import { Star, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n-context";
 
 interface TestimonialProps {
   name: string;
@@ -86,6 +87,8 @@ export function TestimonialSimple({
   text: string;
   section: "women" | "men";
 }) {
+  const { t } = useI18n();
+
   return (
     <blockquote className="space-y-3">
       <div className="flex gap-1">
@@ -102,7 +105,7 @@ export function TestimonialSimple({
         ))}
       </div>
       <p className="italic">"{text}"</p>
-      <cite className="not-italic font-semibold">By {name}</cite>
+      <cite className="not-italic font-semibold">{t("testimonials.by")} {name}</cite>
     </blockquote>
   );
 }

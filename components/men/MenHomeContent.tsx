@@ -13,9 +13,33 @@ import { imageConfig } from "@/config/images";
 import { useI18n } from "@/lib/i18n-context";
 
 export function MenHomeContent() {
-    const { t } = useI18n();
+    const { locale, t } = useI18n();
     const popularServices = getPopularServices(menServices);
-    const testimonials = siteConfig.testimonials.men;
+    const testimonials = locale === "nl"
+        ? [
+            {
+                id: 1,
+                name: "Mark T.",
+                text: "Beste fade die ik in Amsterdam heb gehad. Geen wachtrij, professionele setup en altijd constante kwaliteit. Mijn vaste barber nu.",
+                service: "Skin fade",
+                rating: 5,
+            },
+            {
+                id: 2,
+                name: "David R.",
+                text: "Ik waardeer de aandacht voor detail. Het is alsof je een prive barber hebt. Fijn gesprek en elke keer een perfecte coupe.",
+                service: "Herenknipbeurt",
+                rating: 5,
+            },
+            {
+                id: 3,
+                name: "Alex P.",
+                text: "Het combo pakket is veel waar voor je geld. Knipbeurt en baard trim allebei strak. Handig online boeken ook.",
+                service: "Knipbeurt en Baard",
+                rating: 5,
+            },
+        ]
+        : siteConfig.testimonials.men;
 
     return (
         <>
@@ -32,7 +56,7 @@ export function MenHomeContent() {
                     href: "/men/services",
                 }}
                 imageSrc={imageConfig.menHero}
-                imageAlt="Men's Haircut and Grooming"
+                imageAlt={locale === "nl" ? "Heren knipbeurt en verzorging" : "Men haircut and grooming"}
                 section="men"
             />
 

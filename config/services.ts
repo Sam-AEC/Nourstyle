@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Services Configuration
  *
  * All service listings, descriptions, and pricing.
@@ -31,7 +31,7 @@ export const womenServices: Service[] = [
   // Cuts & Styling
   {
     id: "women-cut-style",
-    name: "Women's Cut & Style",
+    name: "Women Cut and Style",
     description: "Personalized haircut including consultation, wash, precision cut, and blow dry styling. Tailored to your face shape and lifestyle.",
     duration: "60 min",
     price: "€50",
@@ -48,7 +48,7 @@ export const womenServices: Service[] = [
   },
   {
     id: "women-blowdry",
-    name: "Wash & Blow Dry",
+    name: "Wash and Blow Dry",
     description: "Luxurious hair wash with professional blow dry styling.",
     duration: "30 min",
     price: "€25",
@@ -123,7 +123,7 @@ export const menServices: Service[] = [
   // Haircuts
   {
     id: "men-haircut",
-    name: "Men's Haircut",
+    name: "Men Haircut",
     description: "Complete haircut with consultation, precision cut, and styling. Any length or style.",
     duration: "45 min",
     price: "€25",
@@ -149,7 +149,7 @@ export const menServices: Service[] = [
   },
   {
     id: "men-kids-cut",
-    name: "Kids' Haircut (Under 12)",
+    name: "Kids Haircut (Under 12)",
     description: "Patient, kid friendly haircut service.",
     duration: "30 min",
     price: "€20",
@@ -159,7 +159,7 @@ export const menServices: Service[] = [
   // Beard & Grooming
   {
     id: "men-beard-trim",
-    name: "Beard Trim & Shaping",
+    name: "Beard Trim and Shaping",
     description: "Detailed beard sculpting with trimmer and scissors. Includes hot towel finish.",
     duration: "20 min",
     price: "€15",

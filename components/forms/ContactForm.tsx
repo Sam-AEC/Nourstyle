@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -7,19 +7,16 @@ import { z } from "zod";
 import { Send, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "@/components/shared/Toast";
+import { useI18n } from "@/lib/i18n-context";
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  service: z.string().min(1, "Please select a service"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-  consent: z.boolean().refine((val) => val === true, {
-    message: "You must agree to the privacy policy",
-  }),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+  consent: boolean;
+}
 
 interface ContactFormProps {
   section: "women" | "men";
@@ -28,6 +25,100 @@ interface ContactFormProps {
 
 export function ContactForm({ section, services }: ContactFormProps) {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { locale } = useI18n();
+
+  const content = locale === "nl"
+    ? {
+        labels: {
+          name: "Volledige Naam *",
+          email: "Emailadres *",
+          phone: "Telefoonnummer *",
+          service: "Dienst waarin je interesse hebt *",
+          message: "Bericht *",
+          consentPrefix: "Ik ga akkoord met het",
+          consentLink: "Privacybeleid",
+          consentSuffix: "en ik geef toestemming om contact op te nemen over mijn vraag. *",
+        },
+        placeholders: {
+          name: "Je naam",
+          email: "jouw.email@example.com",
+          phone: "+31 6 1234 5678",
+          service: "Kies een dienst...",
+          message: "Vertel ons je voorkeur voor datum, tijd of specifieke wensen...",
+        },
+        options: {
+          generalInquiry: "Algemene Vraag",
+        },
+        validation: {
+          nameMin: "Naam moet minimaal 2 tekens hebben",
+          emailInvalid: "Vul een geldig emailadres in",
+          phoneInvalid: "Vul een geldig telefoonnummer in",
+          serviceRequired: "Kies een dienst",
+          messageMin: "Bericht moet minimaal 10 tekens hebben",
+          consentRequired: "Je moet akkoord gaan met het privacybeleid",
+        },
+        submit: {
+          sending: "Versturen...",
+          send: "Verstuur Bericht",
+        },
+        toast: {
+          success: "Bericht verzonden. We reageren snel.",
+          error: "Er ging iets mis. Probeer het opnieuw.",
+          network: "Bericht niet verzonden. Controleer je verbinding.",
+        },
+        subjectPrefix: section === "women" ? "Nieuwe dames aanvraag voor" : "Nieuwe heren aanvraag voor",
+      }
+    : {
+        labels: {
+          name: "Full Name *",
+          email: "Email Address *",
+          phone: "Phone Number *",
+          service: "Service Interested In *",
+          message: "Message *",
+          consentPrefix: "I agree to the",
+          consentLink: "Privacy Policy",
+          consentSuffix: "and consent to being contacted about my inquiry. *",
+        },
+        placeholders: {
+          name: "Your name",
+          email: "your.email@example.com",
+          phone: "+31 6 1234 5678",
+          service: "Select a service...",
+          message: "Tell us about your preferred date, time, or any specific requests...",
+        },
+        options: {
+          generalInquiry: "General Inquiry",
+        },
+        validation: {
+          nameMin: "Name must be at least 2 characters",
+          emailInvalid: "Please enter a valid email address",
+          phoneInvalid: "Please enter a valid phone number",
+          serviceRequired: "Please select a service",
+          messageMin: "Message must be at least 10 characters",
+          consentRequired: "You must agree to the privacy policy",
+        },
+        submit: {
+          sending: "Sending...",
+          send: "Send Message",
+        },
+        toast: {
+          success: "Message sent. We will get back to you soon.",
+          error: "Something went wrong. Please try again.",
+          network: "Failed to send message. Please check your connection.",
+        },
+        subjectPrefix: section === "women" ? "New Women Service Inquiry for" : "New Men Service Inquiry for",
+      };
+
+  const contactFormSchema = z.object({
+    name: z.string().min(2, content.validation.nameMin),
+    email: z.string().email(content.validation.emailInvalid),
+    phone: z.string().min(10, content.validation.phoneInvalid),
+    service: z.string().min(1, content.validation.serviceRequired),
+    message: z.string().min(10, content.validation.messageMin),
+    consent: z.boolean().refine((val) => val === true, {
+      message: content.validation.consentRequired,
+    }),
+  });
 
   const {
     register,
@@ -50,7 +141,7 @@ export function ContactForm({ section, services }: ContactFormProps) {
         },
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject: `New ${section === "women" ? "Women's" : "Men's"} Service Inquiry for ${data.service}`,
+          subject: `${content.subjectPrefix} ${data.service}`,
           from_name: data.name,
           email: data.email,
           phone: data.phone,
@@ -64,107 +155,102 @@ export function ContactForm({ section, services }: ContactFormProps) {
 
       if (result.success) {
         setSubmitStatus("success");
-        toast.success("Message sent! We'll get back to you soon.");
+        toast.success(content.toast.success);
         reset();
 
         setTimeout(() => setSubmitStatus("idle"), 2000);
       } else {
-        toast.error("Something went wrong. Please try again.");
+        toast.error(content.toast.error);
         setSubmitStatus("idle");
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      toast.error("Failed to send message. Please check your connection.");
+      toast.error(content.toast.network);
       setSubmitStatus("idle");
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Name */}
       <div>
         <label htmlFor="name" className="label">
-          Full Name *
+          {content.labels.name}
         </label>
         <input
           id="name"
           type="text"
           {...register("name")}
           className={cn("input", errors.name && "border-error")}
-          placeholder="Your name"
+          placeholder={content.placeholders.name}
         />
         {errors.name && (
           <p className="mt-1 text-sm text-error">{errors.name.message}</p>
         )}
       </div>
 
-      {/* Email */}
       <div>
         <label htmlFor="email" className="label">
-          Email Address *
+          {content.labels.email}
         </label>
         <input
           id="email"
           type="email"
           {...register("email")}
           className={cn("input", errors.email && "border-error")}
-          placeholder="your.email@example.com"
+          placeholder={content.placeholders.email}
         />
         {errors.email && (
           <p className="mt-1 text-sm text-error">{errors.email.message}</p>
         )}
       </div>
 
-      {/* Phone */}
       <div>
         <label htmlFor="phone" className="label">
-          Phone Number *
+          {content.labels.phone}
         </label>
         <input
           id="phone"
           type="tel"
           {...register("phone")}
           className={cn("input", errors.phone && "border-error")}
-          placeholder="+31 6 1234 5678"
+          placeholder={content.placeholders.phone}
         />
         {errors.phone && (
           <p className="mt-1 text-sm text-error">{errors.phone.message}</p>
         )}
       </div>
 
-      {/* Service Selection */}
       <div>
         <label htmlFor="service" className="label">
-          Service Interested In *
+          {content.labels.service}
         </label>
         <select
           id="service"
           {...register("service")}
           className={cn("input", errors.service && "border-error")}
         >
-          <option value="">Select a service...</option>
+          <option value="">{content.placeholders.service}</option>
           {services.map((service) => (
             <option key={service} value={service}>
               {service}
             </option>
           ))}
-          <option value="General Inquiry">General Inquiry</option>
+          <option value={content.options.generalInquiry}>{content.options.generalInquiry}</option>
         </select>
         {errors.service && (
           <p className="mt-1 text-sm text-error">{errors.service.message}</p>
         )}
       </div>
 
-      {/* Message */}
       <div>
         <label htmlFor="message" className="label">
-          Message *
+          {content.labels.message}
         </label>
         <textarea
           id="message"
           {...register("message")}
           className={cn("textarea", errors.message && "border-error")}
-          placeholder="Tell us about your preferred date, time, or any specific requests..."
+          placeholder={content.placeholders.message}
           rows={5}
         />
         {errors.message && (
@@ -172,7 +258,6 @@ export function ContactForm({ section, services }: ContactFormProps) {
         )}
       </div>
 
-      {/* Privacy Consent */}
       <div className="flex items-start gap-3">
         <input
           id="consent"
@@ -190,18 +275,17 @@ export function ContactForm({ section, services }: ContactFormProps) {
             section === "women" ? "text-women-text-muted" : "text-men-text-muted"
           )}
         >
-          I agree to the{" "}
+          {content.labels.consentPrefix} {" "}
           <a href="/privacy" className="link" target="_blank">
-            Privacy Policy
+            {content.labels.consentLink}
           </a>{" "}
-          and consent to being contacted about my inquiry. *
+          {content.labels.consentSuffix}
         </label>
       </div>
       {errors.consent && (
         <p className="text-sm text-error">{errors.consent.message}</p>
       )}
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={submitStatus === "loading" || submitStatus === "success"}
@@ -209,10 +293,8 @@ export function ContactForm({ section, services }: ContactFormProps) {
       >
         {submitStatus === "loading" && <Loader2 className="h-5 w-5 animate-spin" />}
         {submitStatus !== "loading" && <Send className="h-5 w-5" />}
-        {submitStatus === "loading" ? "Sending..." : "Send Message"}
+        {submitStatus === "loading" ? content.submit.sending : content.submit.send}
       </button>
-
-
     </form>
   );
 }

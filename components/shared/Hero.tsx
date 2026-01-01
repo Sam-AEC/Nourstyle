@@ -61,10 +61,11 @@ export function Hero({
   // Dynamic translation logic
   const titleKey = `hero.${section}.title`;
   const subtitleKey = `hero.${section}.subtitle`;
+  const descriptionKey = `hero.${section}.description`;
 
   const title = t(titleKey) !== titleKey ? t(titleKey) : defaultTitle;
   const subtitle = t(subtitleKey) !== subtitleKey ? t(subtitleKey) : defaultSubtitle;
-  const description = defaultDescription;
+  const description = t(descriptionKey) !== descriptionKey ? t(descriptionKey) : defaultDescription;
 
   return (
     <section className="hero relative overflow-hidden">

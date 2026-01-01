@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Brand Configuration
  *
  * Single source of truth for all brand-related content.
@@ -7,9 +7,9 @@
 
 export const brand = {
   // Basic Info
-  name: "𝑁𝑜𝑢𝑟 𝐻𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
-  tagline: "Your Personal Touch in Hair and Style",
-  description: "Home based hair salon in Amsterdam offering personalized styling for women and professional grooming for men.",
+  name: "𝑁𝑜𝑢𝑟 𝐇𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
+  tagline: "Personal hair and style care",
+  description: "Private hair studio in Amsterdam for women and men.",
 
   // Contact Information
   contact: {
@@ -64,12 +64,12 @@ export const brand = {
   // Theme Colors (matches Tailwind config)
   colors: {
     women: {
-      primary: "#2A5C5A",      // Deep Elegant Teal
-      secondary: "#DBC1AC",    // Champagne/Sand
+      primary: "#2A5C5A", // Deep Elegant Teal
+      secondary: "#DBC1AC", // Champagne/Sand
     },
     men: {
-      primary: "#2DD4BF",      // Premium Teal
-      secondary: "#64748B",    // Slate Blue
+      primary: "#2DD4BF", // Premium Teal
+      secondary: "#64748B", // Slate Blue
     },
   },
 
@@ -103,7 +103,7 @@ export const brand = {
 
 // Helper function to format phone number for display
 export const formatPhone = (phone: string) => {
-  return phone.replace(/(\+\d{2})(\d{1})(\d{4})(\d{4})/, '$1 $2 $3 $4');
+  return phone.replace(/(\+\d{2})(\d{1})(\d{4})(\d{4})/, "$1 $2 $3 $4");
 };
 
 // Helper function to get WhatsApp link

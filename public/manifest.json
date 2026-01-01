@@ -1,16 +1,16 @@
-{
-    "name": "𝑁𝑜𝑢𝑟 𝐻𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡 Hair Salon",
-    "short_name": "𝑁𝑜𝑢𝑟 𝐻𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
-    "description": "Premium hair salon in Amsterdam for men and women.",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#2A5C5A",
-    "icons": [
-        {
-            "src": "/favicon.ico",
-            "sizes": "64x64 32x32 24x24 16x16",
-            "type": "image/x-icon"
-        }
-    ]
+﻿{
+  "name": "𝑁𝑜𝑢𝑟 𝐇𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
+  "short_name": "𝑁𝑜𝑢𝑟 𝐇𝑎𝑖𝑟𝑠𝑡𝑦𝑙𝑖𝑠𝑡",
+  "description": "Haarstudio in Amsterdam voor dames en heren.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2A5C5A",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
 }

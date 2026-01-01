@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Site Configuration
  *
  * SEO metadata, OpenGraph settings, and site-wide constants.
@@ -56,41 +56,41 @@ export const siteConfig = {
     women: [
       {
         question: "What hair services do you specialize in?",
-        answer: "I specialize in all aspects of women's hair care, precision cuts, creative coloring (balayage, highlights, full color), and special occasion styling. Since 2022, I've been dedicated to perfecting my craft and have worked with all hair types and textures.",
+        answer: "I specialize in all aspects of women hair care, precision cuts, creative coloring (balayage, highlights, full color), and special occasion styling. Since 2022, I have been dedicated to perfecting my craft and have worked with all hair types and textures.",
       },
       {
         question: "Is a home salon as professional as a traditional salon?",
-        answer: "Absolutely! My home studio is a dedicated, professional space with salon grade equipment and products. The advantage is you get one on one attention in a private, relaxed environment without the hustle of a busy salon.",
+        answer: "Absolutely. My home studio is a dedicated, professional space with salon grade equipment and products. The advantage is you get one on one attention in a private, relaxed environment without the hustle of a busy salon.",
       },
       {
         question: "How long does a color appointment take?",
-        answer: "It depends on the service. Simple root touch ups take about 90 minutes, while full highlights or balayage can take 2.5 to 3 hours. I always prioritize quality over speed, and I'll give you an accurate time estimate during your consultation.",
+        answer: "It depends on the service. Simple root touch ups take about 90 minutes, while full highlights or balayage can take 2.5 to 3 hours. I always prioritize quality over speed, and I will give you an accurate time estimate during your consultation.",
       },
       {
         question: "What brands do you use?",
-        answer: "I use professional grade products from trusted brands like L'Oréal Professional, Schwarzkopf, and Redken. All color products are ammonia free options available for sensitive scalps.",
+        answer: "I use professional grade products from trusted brands like L Oreal Professional, Schwarzkopf, and Redken. All color products are ammonia free options available for sensitive scalps.",
       },
       {
         question: "Can I bring inspiration photos?",
-        answer: "Please do! Photos are incredibly helpful for understanding your vision. I'll let you know if the look is achievable for your hair type and discuss the best approach.",
+        answer: "Please do. Photos are incredibly helpful for understanding your vision. I will let you know if the look is achievable for your hair type and discuss the best approach.",
       },
     ],
     men: [
       {
-        question: "Do you do modern fades and trendy men's styles?",
-        answer: "Yes! I'm experienced in all current men's styles, skin fades, tapers, textured crops, and classic cuts. I stay updated on trends and techniques through regular training.",
+        question: "Do you do modern fades and trendy men styles?",
+        answer: "Yes. I am experienced in all current men styles, skin fades, tapers, textured crops, and classic cuts. I stay updated on trends and techniques through regular training.",
       },
       {
         question: "How often should I get a haircut?",
-        answer: "For fades and short styles, every 2 to 3 weeks keeps you looking sharp. For longer styles, 4 to 6 weeks is typical. I'll recommend a schedule based on your specific haircut and how fast your hair grows.",
+        answer: "For fades and short styles, every 2 to 3 weeks keeps you looking sharp. For longer styles, 4 to 6 weeks is typical. I will recommend a schedule based on your specific haircut and how fast your hair grows.",
       },
       {
         question: "Do you accept walk ins?",
-        answer: "I operate by appointment to ensure quality service and no waiting. However, I keep flexible hours and can often accommodate same day or next day bookings. Just call or message me!",
+        answer: "I operate by appointment to ensure quality service and no waiting. However, I keep flexible hours and can often accommodate same day or next day bookings. Just call or message me.",
       },
       {
-        question: "What's included in the Haircut + Beard Combo?",
-        answer: "You get a full haircut (any style), beard trim and shaping, hot towel treatment, and styling. It's the complete grooming experience at a package price.",
+        question: "What is included in the haircut and beard combo?",
+        answer: "You get a full haircut (any style), beard trim and shaping, hot towel treatment, and styling. It is the complete grooming experience at a package price.",
       },
       {
         question: "Is parking available?",
@@ -105,21 +105,21 @@ export const siteConfig = {
       {
         id: 1,
         name: "Sarah M.",
-        text: "I've been going to expensive salons for years, but the one on one attention here is unmatched. My balayage has never looked better!",
+        text: "I have been going to expensive salons for years, but the one on one attention here is unmatched. My balayage has never looked better.",
         service: "Balayage",
         rating: 5,
       },
       {
         id: 2,
         name: "Lisa K.",
-        text: "Finally found a stylist who really listens! He understood exactly what I wanted and delivered perfectly. The private setting is so relaxing.",
-        service: "Haircut & Color",
+        text: "Finally found a stylist who really listens. He understood exactly what I wanted and delivered perfectly. The private setting is so relaxing.",
+        service: "Haircut and Color",
         rating: 5,
       },
       {
         id: 3,
         name: "Emma V.",
-        text: "Professional, skilled, and so easy to book online. My hair color is always consistent and beautiful. Highly recommend!",
+        text: "Professional, skilled, and so easy to book online. My hair color is always consistent and beautiful. Highly recommend.",
         service: "Full Color",
         rating: 5,
       },
@@ -128,22 +128,22 @@ export const siteConfig = {
       {
         id: 1,
         name: "Mark T.",
-        text: "Best fade I've had in Amsterdam. No waiting in line, professional setup, and always consistent quality. My go to barber now.",
+        text: "Best fade I have had in Amsterdam. No waiting in line, professional setup, and always consistent quality. My go to barber now.",
         service: "Skin Fade",
         rating: 5,
       },
       {
         id: 2,
         name: "David R.",
-        text: "I appreciate the skill and attention to detail. It's like having a private barber. Great conversation and a perfect cut every time.",
-        service: "Men's Haircut",
+        text: "I appreciate the skill and attention to detail. It is like having a private barber. Great conversation and a perfect cut every time.",
+        service: "Men Haircut",
         rating: 5,
       },
       {
         id: 3,
         name: "Alex P.",
         text: "The combo package is fantastic value. Haircut and beard trim, both done perfectly. Convenient online booking too.",
-        service: "Haircut + Beard",
+        service: "Haircut and Beard",
         rating: 5,
       },
     ],
@@ -191,8 +191,8 @@ export const siteConfig = {
             name: service.name,
             description: service.description,
           },
-          price: service.price.includes('€') ? service.price.replace(/[^0-9]/g, '') : "0",
-          priceCurrency: "EUR"
+          price: service.price.includes("€") ? service.price.replace(/[^0-9]/g, "") : "0",
+          priceCurrency: "EUR",
         })),
         ...menServices.map(service => ({
           "@type": "Offer",
@@ -201,11 +201,11 @@ export const siteConfig = {
             name: service.name,
             description: service.description,
           },
-          price: service.price.includes('€') ? service.price.replace(/[^0-9]/g, '') : "0",
-          priceCurrency: "EUR"
-        }))
-      ]
-    }
+          price: service.price.includes("€") ? service.price.replace(/[^0-9]/g, "") : "0",
+          priceCurrency: "EUR",
+        })),
+      ],
+    },
   },
 } as const;
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useI18n } from "@/lib/i18n-context";
 
 interface Brand {
     name: string;
@@ -19,6 +20,7 @@ interface BrandLogosProps {
 }
 
 export function BrandLogos({ section = "women" }: BrandLogosProps) {
+    const { t } = useI18n();
     const borderColor = section === "women"
         ? "border-women-border/20"
         : "border-men-border/20";
@@ -31,7 +33,7 @@ export function BrandLogos({ section = "women" }: BrandLogosProps) {
         <section className={`py-8 border-t border-b ${borderColor}`}>
             <div className="container">
                 <p className={`text-center text-sm ${textColor} mb-6`}>
-                    Trusted Products We Use
+                    {t("brands.title")}
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
                     {brands.map((brand) => (

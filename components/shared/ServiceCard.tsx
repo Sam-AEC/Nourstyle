@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Clock, Euro } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -60,7 +60,6 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
         section === "women" ? "hover:shadow-xl hover:shadow-women-primary/10" : "hover:shadow-xl hover:shadow-men-primary/10"
       )}
     >
-      {/* Background Gradient on Hover */}
       <div
         className={cn(
           "absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none",
@@ -70,7 +69,6 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
         )}
       />
 
-      {/* Popular Badge */}
       {service.popular && (
         <div
           className={cn(
@@ -83,10 +81,8 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
       )}
 
       <div className="relative space-y-4 z-10">
-        {/* Service Name */}
         <h3 className="text-xl font-bold font-heading">{displayName}</h3>
 
-        {/* Description */}
         <p
           className={cn(
             "text-base leading-relaxed",
@@ -96,7 +92,6 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
           {displayDescription}
         </p>
 
-        {/* Duration & Price */}
         <div className={cn(
           "flex items-center justify-between pt-4 border-t",
           section === "women" ? "border-women-border" : "border-men-border"
