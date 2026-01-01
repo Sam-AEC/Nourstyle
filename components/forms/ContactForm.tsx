@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { toast } from "@/components/shared/Toast";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -63,18 +64,18 @@ export function ContactForm({ section, services }: ContactFormProps) {
 
       if (result.success) {
         setSubmitStatus("success");
+        toast.success("Message sent! We'll get back to you soon.");
         reset();
 
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setSubmitStatus("idle");
-        }, 5000);
+        setTimeout(() => setSubmitStatus("idle"), 2000);
       } else {
-        setSubmitStatus("error");
+        toast.error("Something went wrong. Please try again.");
+        setSubmitStatus("idle");
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      setSubmitStatus("error");
+      toast.error("Failed to send message. Please check your connection.");
+      setSubmitStatus("idle");
     }
   };
 
@@ -207,39 +208,11 @@ export function ContactForm({ section, services }: ContactFormProps) {
         className="btn btn-primary btn-lg w-full"
       >
         {submitStatus === "loading" && <Loader2 className="h-5 w-5 animate-spin" />}
-        {submitStatus === "success" && <CheckCircle2 className="h-5 w-5" />}
-        {submitStatus !== "loading" && submitStatus !== "success" && <Send className="h-5 w-5" />}
-        {submitStatus === "loading" && "Sending..."}
-        {submitStatus === "success" && "Message Sent!"}
-        {submitStatus !== "loading" && submitStatus !== "success" && "Send Message"}
+        {submitStatus !== "loading" && <Send className="h-5 w-5" />}
+        {submitStatus === "loading" ? "Sending..." : "Send Message"}
       </button>
 
-      {/* Success Message */}
-      {submitStatus === "success" && (
-        <div
-          className={cn(
-            "flex items-center gap-3 rounded-lg border p-4",
-            section === "women"
-              ? "border-success bg-success/10 text-success"
-              : "border-success bg-success/10 text-success"
-          )}
-        >
-          <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
-          <p className="text-sm">
-            Thank you! Your message has been sent successfully. We'll get back to you soon.
-          </p>
-        </div>
-      )}
 
-      {/* Error Message */}
-      {submitStatus === "error" && (
-        <div className="flex items-center gap-3 rounded-lg border border-error bg-error/10 p-4 text-error">
-          <AlertCircle className="h-5 w-5 flex-shrink-0" />
-          <p className="text-sm">
-            Sorry, something went wrong. Please try again or contact us directly.
-          </p>
-        </div>
-      )}
     </form>
   );
 }

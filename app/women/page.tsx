@@ -12,8 +12,12 @@ import { siteConfig, generateMetadata } from "@/config/site";
 import { imageConfig } from "@/config/images";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Women's Hair Services in Amsterdam",
-  description: "Expert hair cutting, coloring, and styling for women. Personalized one-on-one service in a private Amsterdam salon. Balayage, highlights, and more.",
+  title: "Women's Hair Salon Amsterdam | Expert Cuts & Color",
+  description: "Premier women's hair salon in Amsterdam specializing in balayage, precision cuts, and luxury styling. Experience one-on-one attention in a private setting.",
+  keywords: ["women's hairdresser amsterdam", "balayage amsterdam", "ladies haircut amsterdam", "hair color specialist", "private hair salon"],
+  openGraph: {
+    images: ["/images/women-hero.jpg"],
+  },
   path: "/women",
 });
 

@@ -4,6 +4,7 @@ import { Clock, Euro } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Service } from "@/config/services";
 import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 
 interface ServiceCardProps {
   service: Service;
@@ -13,8 +14,11 @@ interface ServiceCardProps {
 export function ServiceCard({ service, section }: ServiceCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -5, transition: { duration: 0.3 } }}
       className={cn(
         "card group relative overflow-hidden transition-all duration-300",
         service.popular && "ring-1 ring-offset-2",
@@ -24,13 +28,13 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
       )}
     >
       {/* Background Gradient on Hover */}
-      <div 
+      <div
         className={cn(
           "absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none",
-          section === "women" 
-            ? "bg-gradient-to-br from-women-primary/5 to-transparent" 
+          section === "women"
+            ? "bg-gradient-to-br from-women-primary/5 to-transparent"
             : "bg-gradient-to-br from-men-primary/5 to-transparent"
-        )} 
+        )}
       />
 
       {/* Popular Badge */}
@@ -98,6 +102,6 @@ export function ServiceCardSkeleton() {
           <div className="h-6 w-16 rounded bg-neutral-200" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

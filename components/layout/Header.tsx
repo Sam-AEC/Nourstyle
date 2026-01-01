@@ -71,7 +71,7 @@ export function Header({ section, navLinks }: HeaderProps) {
               href={`/${otherSection}`}
               className={cn(
                 "text-sm font-medium transition-all hover:opacity-100 opacity-60 flex items-center gap-1",
-                 section === "women" ? "text-women-text" : "text-men-text"
+                section === "women" ? "text-women-text" : "text-men-text"
               )}
             >
               {otherSectionLabel}
@@ -95,6 +95,7 @@ export function Header({ section, navLinks }: HeaderProps) {
               section === "women" ? "hover:bg-women-primary/10 text-women-text" : "hover:bg-men-primary/10 text-men-text"
             )}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -115,8 +116,8 @@ export function Header({ section, navLinks }: HeaderProps) {
             transition={{ duration: 0.3 }}
             className={cn(
               "absolute left-0 right-0 top-full overflow-hidden border-t md:hidden backdrop-blur-xl",
-              section === "women" 
-                ? "bg-women-bg/95 border-women-border" 
+              section === "women"
+                ? "bg-women-bg/95 border-women-border"
                 : "bg-men-bg/95 border-men-border"
             )}
           >
@@ -133,8 +134,8 @@ export function Header({ section, navLinks }: HeaderProps) {
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
                       "flex items-center justify-between text-2xl font-heading font-medium transition-colors p-2 rounded-lg",
-                      section === "women" 
-                        ? "text-women-text hover:bg-women-primary/10 hover:text-women-primary" 
+                      section === "women"
+                        ? "text-women-text hover:bg-women-primary/10 hover:text-women-primary"
                         : "text-men-text hover:bg-men-primary/10 hover:text-men-primary"
                     )}
                   >
@@ -144,11 +145,11 @@ export function Header({ section, navLinks }: HeaderProps) {
                 </motion.div>
               ))}
 
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="my-4 h-px bg-current opacity-10" 
+                className="my-4 h-px bg-current opacity-10"
               />
 
               {/* Mobile Actions */}

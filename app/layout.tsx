@@ -3,6 +3,7 @@ import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/shared/Toast";
 
 // Premium Typography Setup
 const fontHeading = Playfair_Display({
@@ -96,7 +97,13 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+          Skip to main content
+        </a>
+        <main id="main">
+          {children}
+        </main>
+        <Toaster />
       </body>
     </html>
   );

@@ -176,42 +176,53 @@ export const siteConfig = {
 } as const;
 
 // Helper to generate page metadata
-export const generateMetadata = (page: {
+export interface MetadataProps {
   title: string;
   description: string;
   path: string;
   ogImage?: string;
-}) => {
-  const url = `${siteConfig.url}${page.path}`;
+  keywords?: string[];
+  openGraph?: any;
+}
 
+export function generateMetadata({
+  title,
+  description,
+  path,
+  ogImage = siteConfig.ogImage,
+  keywords = [],
+  openGraph = {},
+}: MetadataProps): any { // Changed return type to 'any' as 'Metadata' is not defined in the provided context
   return {
-    title: `${page.title} | ${siteConfig.name}`,
-    description: page.description,
+    title: `${title} | ${siteConfig.name}`, // Added siteConfig.name back to title
+    description,
+    keywords: keywords.length > 0 ? keywords : undefined, // siteConfig.keywords is not defined, so fallback to undefined
     openGraph: {
-      title: page.title,
-      description: page.description,
-      url,
-      siteName: siteConfig.name,
+      title,
+      description,
+      url: `${siteConfig.url}${path}`,
+      siteName: siteConfig.name, // Added siteName back
       images: [
         {
-          url: page.ogImage || siteConfig.ogImage,
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: page.title,
+          alt: title,
         },
       ],
-      locale: "en_NL",
-      type: "website",
+      locale: "en_NL", // Added locale back
+      type: "website", // Added type back
+      ...openGraph,
     },
     twitter: {
       card: "summary_large_image",
-      title: page.title,
-      description: page.description,
-      images: [page.ogImage || siteConfig.ogImage],
-      creator: siteConfig.twitterHandle,
+      title,
+      description,
+      images: [ogImage],
+      creator: siteConfig.twitterHandle, // Added creator back
     },
     alternates: {
-      canonical: url,
+      canonical: `${siteConfig.url}${path}`,
     },
   };
 };
