@@ -7,7 +7,7 @@ interface BookingWidgetProps {
     calLink?: string;
 }
 
-export function BookingWidget({ calLink = "nourstyle" }: BookingWidgetProps) {
+export function BookingWidget({ calLink = "a-mohammad-sam-460fdk/30min" }: BookingWidgetProps) {
     const [isLoading, setIsLoading] = useState(true);
 
     // Fallback to a demo link if environment variable is missing

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Locale = 'en' | 'nl';
 type Dictionary = Record<string, any>;
@@ -14,6 +14,16 @@ const I18nContext = createContext<{
     setLocale: () => { },
     t: (key) => key,
 });
+
+const getInitialLocale = (): Locale => {
+    if (typeof window === 'undefined') return 'en';
+
+    const stored = window.localStorage.getItem('locale');
+    if (stored === 'en' || stored === 'nl') return stored;
+
+    const browser = window.navigator.language?.toLowerCase() || '';
+    return browser.startsWith('nl') ? 'nl' : 'en';
+};
 
 const dictionaries: Record<Locale, Dictionary> = {
     en: {
@@ -52,7 +62,10 @@ const dictionaries: Record<Locale, Dictionary> = {
         services: {
             popular_title: "Popular Services",
             popular_subtitle: "From everyday cuts to stunning transformations",
-            view_all: "View All Services & Pricing"
+            view_all: "View All Services & Pricing",
+            popular_badge: "Popular",
+            price_from: "from",
+            price_free: "FREE"
         },
         testimonials: {
             title: "What Clients Say",
@@ -117,7 +130,88 @@ const dictionaries: Record<Locale, Dictionary> = {
         services: {
             popular_title: "Populaire Diensten",
             popular_subtitle: "Van knippen tot prachtige kleurtransformaties",
-            view_all: "Bekijk Alle Diensten & Prijzen"
+            view_all: "Bekijk Alle Diensten & Prijzen",
+            popular_badge: "Populair",
+            price_from: "vanaf",
+            price_free: "GRATIS",
+            items: {
+                "women-free-consultation": {
+                    name: "Gratis Consult",
+                    description: "Gratis haarconsult om je wensen te bespreken, je haartype te beoordelen en de beste behandelingen te adviseren. Geen verplichting."
+                },
+                "women-cut-style": {
+                    name: "Dames Knippen & Stylen",
+                    description: "Persoonlijke knipbeurt inclusief consult, wassen, precisieknip en blow-dry styling. Afgestemd op je gezichtsvorm en lifestyle."
+                },
+                "women-cut-only": {
+                    name: "Alleen Knippen",
+                    description: "Snelle precisieknip zonder wassen of styling. Perfect voor bijpunten."
+                },
+                "women-blowdry": {
+                    name: "Wassen & Fohnen",
+                    description: "Luxe wasbeurt met professionele blow-dry styling."
+                },
+                "women-special-styling": {
+                    name: "Feeststyling",
+                    description: "Elegante updo of styling voor speciale gelegenheden. Ideaal voor bruiloften, feesten en events."
+                },
+                "women-full-color": {
+                    name: "Volledige Kleuring",
+                    description: "Complete kleurverandering met premium producten, toner en styling. Inclusief consult."
+                },
+                "women-balayage": {
+                    name: "Balayage / Ombre",
+                    description: "Met de hand aangebrachte highlights voor een natuurlijke, zongekuste look. Inclusief toner en styling."
+                },
+                "women-highlights": {
+                    name: "Deel Highlights",
+                    description: "Folies voor dimensie en helderheid. Inclusief toner en blow-dry."
+                },
+                "women-root-touch": {
+                    name: "Uitgroei Bijwerken",
+                    description: "Kleur opfrissen voor uitgroei. Snel en onderhoudsvriendelijk."
+                },
+                "women-toner": {
+                    name: "Toner Behandeling",
+                    description: "Verfris en corrigeer je kleurtint. Ideaal tussen volledige kleurbehandelingen."
+                },
+                "women-deep-conditioning": {
+                    name: "Diep Conditionerende Behandeling",
+                    description: "Intensieve hydratatie- en herstelbehandeling voor beschadigd of droog haar."
+                },
+                "men-haircut": {
+                    name: "Herenknipbeurt",
+                    description: "Complete knipbeurt met consult, precisieknip en styling. Elke lengte of stijl."
+                },
+                "men-fade": {
+                    name: "Skin Fade / Taper",
+                    description: "Moderne fade met strakke overgangen. Inclusief styling."
+                },
+                "men-buzz-cut": {
+                    name: "Buzz Cut",
+                    description: "Strakke, uniforme tondeuseknip. Snel en klassiek."
+                },
+                "men-kids-cut": {
+                    name: "Kinderknipbeurt (tot 12)",
+                    description: "Geduldige, kindvriendelijke knipbeurt."
+                },
+                "men-beard-trim": {
+                    name: "Baard Trimmen & Vormgeven",
+                    description: "Gedetailleerde baardverzorging met trimmer en schaar. Inclusief hot towel finish."
+                },
+                "men-hot-shave": {
+                    name: "Traditionele Hot Towel Shave",
+                    description: "Klassieke scheerbeurt met open mes en warme handdoek. Glad en ontspannend."
+                },
+                "men-combo": {
+                    name: "Knipbeurt + Baard Combo",
+                    description: "Complete grooming package - knipbeurt en baardtrim."
+                },
+                "men-full-service": {
+                    name: "Complete Grooming Service",
+                    description: "Het ultieme pakket: knipbeurt, baardtrim en hot towel shave."
+                }
+            }
         },
         testimonials: {
             title: "Wat Klanten Zeggen",
@@ -149,7 +243,13 @@ const dictionaries: Record<Locale, Dictionary> = {
 };
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-    const [locale, setLocale] = useState<Locale>('en');
+    const [locale, setLocale] = useState<Locale>(() => getInitialLocale());
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        window.localStorage.setItem('locale', locale);
+        document.documentElement.lang = locale;
+    }, [locale]);
 
     // Simple nested key retrieval (e.g., 'nav.home')
     const t = (path: string) => {

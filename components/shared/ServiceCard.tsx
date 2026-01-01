@@ -3,6 +3,7 @@
 import { Clock, Euro } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Service } from "@/config/services";
+import { useI18n } from "@/lib/i18n-context";
 import { motion } from "framer-motion";
 
 interface ServiceCardProps {
@@ -11,8 +12,38 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ service, section }: ServiceCardProps) {
-  const hasCurrency = service.price.includes("€");
-  const displayPrice = hasCurrency ? service.price.replace("€", "").trim() : service.price;
+  const { t } = useI18n();
+
+  const nameKey = `services.items.${service.id}.name`;
+  const descriptionKey = `services.items.${service.id}.description`;
+  const localizedName = t(nameKey);
+  const localizedDescription = t(descriptionKey);
+  const displayName = localizedName !== nameKey ? localizedName : service.name;
+  const displayDescription = localizedDescription !== descriptionKey ? localizedDescription : service.description;
+
+  const fromLabel = t("services.price_from") !== "services.price_from" ? t("services.price_from") : "from";
+  const freeLabel = t("services.price_free") !== "services.price_free" ? t("services.price_free") : "FREE";
+  const popularLabel = t("services.popular_badge") !== "services.popular_badge" ? t("services.popular_badge") : "Popular";
+
+  const normalizePrice = (price: string) => {
+    const trimmed = price.trim();
+    const lower = trimmed.toLowerCase();
+
+    if (lower === "free") {
+      return freeLabel;
+    }
+
+    if (lower.startsWith("from ")) {
+      const rest = trimmed.slice(5).trim();
+      return `${fromLabel} ${rest}`.trim();
+    }
+
+    return trimmed;
+  };
+
+  const normalizedPrice = normalizePrice(service.price);
+  const hasCurrency = normalizedPrice.includes("€");
+  const displayPrice = hasCurrency ? normalizedPrice.replace("€", "").trim() : normalizedPrice;
 
   return (
     <motion.div
@@ -47,13 +78,13 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
             section === "women" ? "bg-women-primary" : "bg-men-primary"
           )}
         >
-          Popular
+          {popularLabel}
         </div>
       )}
 
       <div className="relative space-y-4 z-10">
         {/* Service Name */}
-        <h3 className="text-xl font-bold font-heading">{service.name}</h3>
+        <h3 className="text-xl font-bold font-heading">{displayName}</h3>
 
         {/* Description */}
         <p
@@ -62,7 +93,7 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
             section === "women" ? "text-women-text-muted" : "text-men-text-muted"
           )}
         >
-          {service.description}
+          {displayDescription}
         </p>
 
         {/* Duration & Price */}
