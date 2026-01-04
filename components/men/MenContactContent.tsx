@@ -17,51 +17,51 @@ export function MenContactContent() {
 
   const content = locale === "nl"
     ? {
-        title: "Neem Contact Op",
-        subtitle: "Vragen? Wil je boeken? Neem gerust contact op.",
-        bookTitle: "Boek Online",
-        bookDesc: "24 7 online planning",
-        callTitle: "Bel Ons",
-        chatTitle: "WhatsApp",
-        chatDesc: "Snel bericht",
-        emailTitle: "Email",
-        formTitle: "Stuur Ons een Bericht",
-        visitTitle: "Bezoek Ons",
-        locationTitle: "Locatie",
-        directions: "Route",
-        scheduleTitle: "Flexibele Planning",
-        scheduleDesc: "Afspraken op basis van beschikbaarheid. Boek online om beschikbare tijden te zien.",
-        scheduleLink: "Bekijk Beschikbare Tijden",
-        mapTitle: "Salon Locatie",
-        parkingTitle: "Parkeren en Vervoer",
-        parkingDesc: "Gratis parkeren in de buurt. Ook goed bereikbaar met openbaar vervoer, 5 minuten lopen vanaf de tram.",
-        directTitle: "Liever Direct Boeken?",
-        directDesc: "Gebruik het online boekingssysteem om tijden te bekijken en direct te reserveren.",
-        directCta: "Boek Afspraak",
-      }
+      title: "Neem Contact Op",
+      subtitle: "Vragen? Wil je boeken? Neem gerust contact op.",
+      bookTitle: "Boek Online",
+      bookDesc: "24 7 online planning",
+      callTitle: "Bel Ons",
+      chatTitle: "WhatsApp",
+      chatDesc: "Snel bericht",
+      emailTitle: "Email",
+      formTitle: "Stuur Ons een Bericht",
+      visitTitle: "Bezoek Ons",
+      locationTitle: "Locatie",
+      directions: "Route",
+      scheduleTitle: "Flexibele Planning",
+      scheduleDesc: "Afspraken op basis van beschikbaarheid. Boek online om beschikbare tijden te zien.",
+      scheduleLink: "Bekijk Beschikbare Tijden",
+      mapTitle: "Salon Locatie",
+      parkingTitle: "Parkeren en Vervoer",
+      parkingDesc: "Gratis parkeren in de buurt. Ook goed bereikbaar met openbaar vervoer, 5 minuten lopen vanaf de tram.",
+      directTitle: "Liever Direct Boeken?",
+      directDesc: "Gebruik het online boekingssysteem om tijden te bekijken en direct te reserveren.",
+      directCta: "Boek Afspraak",
+    }
     : {
-        title: "Get in Touch",
-        subtitle: "Questions? Want to book? Reach out anytime!",
-        bookTitle: "Book Online",
-        bookDesc: "24 7 online scheduling",
-        callTitle: "Call Us",
-        chatTitle: "WhatsApp",
-        chatDesc: "Quick chat",
-        emailTitle: "Email",
-        formTitle: "Send Us a Message",
-        visitTitle: "Visit Us",
-        locationTitle: "Location",
-        directions: "Get Directions",
-        scheduleTitle: "Flexible Scheduling",
-        scheduleDesc: "Appointments available based on calendar availability. Book online to see real time open slots.",
-        scheduleLink: "Check Available Times",
-        mapTitle: "Salon Location",
-        parkingTitle: "Parking and Transport",
-        parkingDesc: "Free street parking available in the neighborhood. Also easily accessible by public transport, 5 minute walk from tram stop.",
-        directTitle: "Prefer to Book Directly?",
-        directDesc: "Use our online booking system to see available times and reserve your spot in seconds.",
-        directCta: "Book Appointment",
-      };
+      title: "Get in Touch",
+      subtitle: "Questions? Want to book? Reach out anytime!",
+      bookTitle: "Book Online",
+      bookDesc: "24 7 online scheduling",
+      callTitle: "Call Us",
+      chatTitle: "WhatsApp",
+      chatDesc: "Quick chat",
+      emailTitle: "Email",
+      formTitle: "Send Us a Message",
+      visitTitle: "Visit Us",
+      locationTitle: "Location",
+      directions: "Get Directions",
+      scheduleTitle: "Flexible Scheduling",
+      scheduleDesc: "Appointments available based on calendar availability. Book online to see real time open slots.",
+      scheduleLink: "Check Available Times",
+      mapTitle: "Salon Location",
+      parkingTitle: "Parking and Transport",
+      parkingDesc: "Free street parking available in the neighborhood. Also easily accessible by public transport, 5 minute walk from tram stop.",
+      directTitle: "Prefer to Book Directly?",
+      directDesc: "Use our online booking system to see available times and reserve your spot in seconds.",
+      directCta: "Book Appointment",
+    };
 
   return (
     <>
@@ -76,7 +76,22 @@ export function MenContactContent() {
 
       <section className="section">
         <div className="container">
-          <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <a
+              href={getGoogleMapsLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card group text-center transition-all hover:shadow-lg"
+            >
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-men-primary/10 transition-colors group-hover:bg-men-primary">
+                <MapPin className="h-8 w-8 text-men-primary transition-colors group-hover:text-white" />
+              </div>
+              <h3 className="mb-2 font-semibold">{content.locationTitle}</h3>
+              <p className="text-sm text-men-text-muted">
+                {brand.contact.address.street}, {brand.contact.address.city}
+              </p>
+            </a>
+
             <a
               href={brand.booking.url}
               target="_blank"
@@ -158,8 +173,9 @@ export function MenContactContent() {
                         href={getGoogleMapsLink()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-1 text-sm text-men-primary hover:underline"
+                        className="btn btn-secondary btn-sm mt-3 inline-flex items-center gap-2"
                       >
+                        <MapPin className="h-4 w-4" />
                         {content.directions}
                       </a>
                     </div>
@@ -186,7 +202,7 @@ export function MenContactContent() {
                   <div className="overflow-hidden rounded-lg border border-men-border">
                     <div className="aspect-video bg-men-surface">
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.1234567890!2d4.895!3d52.367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDIyJzAxLjIiTiA0wrA1Myc0Mi4wIkU!5e0!3m2!1sen!2snl!4v1234567890"
+                        src="https://maps.google.com/maps?q=Van+Zuylenstraat+21,+'s-Hertogenbosch&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

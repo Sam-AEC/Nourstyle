@@ -15,18 +15,18 @@ export const brand = {
   contact: {
     phone: "+31 6 1234 5678",
     whatsapp: "+31612345678", // Without spaces/formatting for WhatsApp link
-    email: "hello@nourstyle.nl",
+    email: "info.nourhairstylist@gmail.com",
     address: {
-      street: "Example Street 123",
-      neighborhood: "Nieuw West",
-      city: "Amsterdam",
-      postalCode: "1067 AB",
+      street: "Van Zuylenstraat 21",
+      neighborhood: "",
+      city: "'s-Hertogenbosch",
+      postalCode: "",
       country: "Netherlands",
     },
     // Update with your actual coordinates from Google Maps
     coordinates: {
-      lat: 52.3676,
-      lng: 4.8952,
+      lat: 51.6978,
+      lng: 5.3037,
     },
   },
 
@@ -36,7 +36,7 @@ export const brand = {
   // Social Media separate Instagram accounts for Women and Men sections
   social: {
     instagram: {
-      women: process.env.NEXT_PUBLIC_INSTAGRAM_WOMEN || "https://instagram.com/nourstyle_women",
+      women: process.env.NEXT_PUBLIC_INSTAGRAM_WOMEN || "https://www.instagram.com/nourhaarstylist?igsh=MWEzcTlvcHV6ZGJqNg==",
       men: process.env.NEXT_PUBLIC_INSTAGRAM_MEN || "https://instagram.com/nourstyle_men",
     },
     facebook: "https://facebook.com/nourstyle",
