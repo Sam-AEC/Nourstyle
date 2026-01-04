@@ -85,10 +85,7 @@ const dictionaries: Record<Locale, Dictionary> = {
           name: "Women – Long hair wash, cut & dry",
           description: "Wash, cut, and dry for long hair.",
         },
-        "women-styling-addon": {
-          name: "Styling (blow dry/curling iron)",
-          description: "Add-on styling with blow dry or curling iron.",
-        },
+
         "women-blowdry-styling": {
           name: "Women – Blow dry styling",
           description: "Hair wash, dry, and blow dry styling for a beautiful, groomed look.",
@@ -277,10 +274,7 @@ const dictionaries: Record<Locale, Dictionary> = {
           name: "Dames – lang haar wassen, knippen & drogen",
           description: "Wassen, knippen en drogen speciaal voor lang haar.",
         },
-        "women-styling-addon": {
-          name: "Styling (model föhnen/krultang)",
-          description: "Extra styling met föhn of krultang.",
-        },
+
         "women-blowdry-styling": {
           name: "Dames – föhnen in model",
           description: "Haar wassen drogen en in model föhnen voor een mooie, verzorgde look.",
