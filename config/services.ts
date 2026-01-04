@@ -20,8 +20,8 @@ export const womenServices: Service[] = [
   // Cuts & Styling
   {
     id: "women-wash-cut-dry-long",
-    name: "Women – Long hair wash, cut & dry",
-    description: "Wash, cut, and dry for long hair.",
+    name: "Long hair wash, cut & dry",
+    description: "Wash, cut, and dry for long hair. Optional styling (blow dry/curling iron): +€15.",
     duration: "60 min",
     price: "€35",
     category: "Cuts & Styling",
@@ -30,7 +30,7 @@ export const womenServices: Service[] = [
 
   {
     id: "women-blowdry-styling",
-    name: "Women – Blow dry styling",
+    name: "Blow dry styling",
     description: "Hair wash, dry, and blow dry styling for a beautiful, groomed look.",
     duration: "60 min",
     price: "€35",
@@ -38,8 +38,8 @@ export const womenServices: Service[] = [
   },
   {
     id: "women-curls-wash",
-    name: "Women – Curls with curling iron (incl. wash)",
-    description: "Wash and curls with scrolling iron for a beautiful, long-lasting look.",
+    name: "Curls with curling iron",
+    description: "Wash and curls with curling iron for a beautiful, long-lasting look.",
     duration: "60 min",
     price: "€40",
     category: "Cuts & Styling",
@@ -56,7 +56,7 @@ export const womenServices: Service[] = [
   },
   {
     id: "women-color-short",
-    name: "Color – Short hair",
+    name: "Color Short hair",
     description: "Full coloring for short hair for an even, fresh color.",
     duration: "60 min",
     price: "€50",
@@ -64,7 +64,7 @@ export const womenServices: Service[] = [
   },
   {
     id: "women-color-medium",
-    name: "Color – Medium hair",
+    name: "Color Medium hair",
     description: "Full coloring for medium hair for an even, fresh color.",
     duration: "60 min",
     price: "€70",
@@ -72,7 +72,7 @@ export const womenServices: Service[] = [
   },
   {
     id: "women-color-long",
-    name: "Color – Long hair",
+    name: "Color Long hair",
     description: "Full coloring for long hair for an even, fresh color.",
     duration: "60 min",
     price: "€80",

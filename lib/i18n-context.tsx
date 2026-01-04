@@ -82,32 +82,32 @@ const dictionaries: Record<Locale, Dictionary> = {
       },
       items: {
         "women-wash-cut-dry-long": {
-          name: "Women – Long hair wash, cut & dry",
-          description: "Wash, cut, and dry for long hair.",
+          name: "Long hair wash, cut & dry",
+          description: "Wash, cut, and dry for long hair. Optional styling (blow dry/curling iron): +€15.",
         },
 
         "women-blowdry-styling": {
-          name: "Women – Blow dry styling",
+          name: "Blow dry styling",
           description: "Hair wash, dry, and blow dry styling for a beautiful, groomed look.",
         },
         "women-curls-wash": {
-          name: "Women – Curls with curling iron (incl. wash)",
-          description: "Wash and curls with scrolling iron for a beautiful, long-lasting look.",
+          name: "Curls with curling iron",
+          description: "Wash and curls with curling iron for a beautiful, long-lasting look.",
         },
         "women-root-touch": {
           name: "Root Touch Up",
           description: "Touch up roots for a fresh, even color.",
         },
         "women-color-short": {
-          name: "Color – Short hair",
+          name: "Color Short hair",
           description: "Full coloring for short hair for an even, fresh color.",
         },
         "women-color-medium": {
-          name: "Color – Medium hair",
+          name: "Color Medium hair",
           description: "Full coloring for medium hair for an even, fresh color.",
         },
         "women-color-long": {
-          name: "Color – Long hair",
+          name: "Color Long hair",
           description: "Full coloring for long hair for an even, fresh color.",
         },
         "women-toner": {
@@ -135,7 +135,7 @@ const dictionaries: Record<Locale, Dictionary> = {
           description: "For extra length and volume with a natural look. Treatment and color tailored to your hair.",
         },
         "women-extensions-refit": {
-          name: "Micro-keratin extensions – Refit",
+          name: "Micro Keratin extensions Refit",
           description: "Extensions removed and replaced with new micro-keratin per strand.",
         },
         "men-haircut": {
@@ -271,16 +271,16 @@ const dictionaries: Record<Locale, Dictionary> = {
       },
       items: {
         "women-wash-cut-dry-long": {
-          name: "Dames – lang haar wassen, knippen & drogen",
-          description: "Wassen, knippen en drogen speciaal voor lang haar.",
+          name: "Lang haar wassen, knippen & drogen",
+          description: "Wassen, knippen en drogen speciaal voor lang haar. Optie Styling (model föhnen/krultang): +€15.",
         },
 
         "women-blowdry-styling": {
-          name: "Dames – föhnen in model",
+          name: "Föhnen in model",
           description: "Haar wassen drogen en in model föhnen voor een mooie, verzorgde look.",
         },
         "women-curls-wash": {
-          name: "Dames – krullen met krultang (incl. wassen)",
+          name: "Krullen met krultang (incl. wassen)",
           description: "Wassen en krullen met de krultang voor een mooie, langdurige look.",
         },
         "women-root-touch": {
@@ -288,15 +288,15 @@ const dictionaries: Record<Locale, Dictionary> = {
           description: "Uitgroei bijwerken voor een frisse, egale kleur.",
         },
         "women-color-short": {
-          name: "Kleuren – kort haar",
+          name: "Kleuren kort haar",
           description: "Volledige kleuring voor kort haar voor een egale, frisse kleur.",
         },
         "women-color-medium": {
-          name: "Kleuren – halflang haar",
+          name: "Kleuren halflang haar",
           description: "Volledige kleuring voor halflang haar voor een egale, frisse kleur.",
         },
         "women-color-long": {
-          name: "Kleuren – lang haar",
+          name: "Kleuren lang haar",
           description: "Volledige kleuring voor lang haar voor een egale, frisse kleur.",
         },
         "women-toner": {
@@ -324,7 +324,7 @@ const dictionaries: Record<Locale, Dictionary> = {
           description: "Voor extra lengte en volume met een natuurlijke uitstraling. De behandeling en kleur worden afgestemd op jouw haar.",
         },
         "women-extensions-refit": {
-          name: "Micro-keratine extensions – herplaatsing",
+          name: "Micro Keratine extensions herplaatsing",
           description: "De extensions worden verwijderd en opnieuw geplaatst met nieuwe micro-keratine per streng.",
         },
         "men-haircut": {
@@ -409,7 +409,16 @@ const dictionaries: Record<Locale, Dictionary> = {
 };
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>(() => getInitialLocale());
+  // Initialize with 'en' to avoid hydration mismatch with server
+  const [locale, setLocale] = useState<Locale>("en");
+
+  // Sync with client preference on mount
+  useEffect(() => {
+    const clientPreference = getInitialLocale();
+    if (clientPreference !== "en") {
+      setLocale(clientPreference);
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
