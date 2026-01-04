@@ -23,6 +23,8 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
 
   const fromLabel = t("services.price_from") !== "services.price_from" ? t("services.price_from") : "from";
   const freeLabel = t("services.price_free") !== "services.price_free" ? t("services.price_free") : "FREE";
+  const onRequestLabel = t("services.price_on_request") !== "services.price_on_request" ? t("services.price_on_request") : "On Request";
+  const strandLabel = t("services.unit_strand") !== "services.unit_strand" ? t("services.unit_strand") : "strand";
   const popularLabel = t("services.popular_badge") !== "services.popular_badge" ? t("services.popular_badge") : "Popular";
 
   const normalizePrice = (price: string) => {
@@ -31,6 +33,14 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
 
     if (lower === "free") {
       return freeLabel;
+    }
+
+    if (lower === "on request") {
+      return onRequestLabel;
+    }
+
+    if (lower.includes("/ strand")) {
+      return trimmed.replace("strand", strandLabel);
     }
 
     if (lower.startsWith("from ")) {
@@ -44,6 +54,7 @@ export function ServiceCard({ service, section }: ServiceCardProps) {
   const normalizedPrice = normalizePrice(service.price);
   const hasCurrency = normalizedPrice.includes("€");
   const displayPrice = hasCurrency ? normalizedPrice.replace("€", "").trim() : normalizedPrice;
+
 
   return (
     <motion.div

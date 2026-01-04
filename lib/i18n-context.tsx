@@ -12,7 +12,7 @@ const I18nContext = createContext<{
 }>(
   {
     locale: "en",
-    setLocale: () => {},
+    setLocale: () => { },
     t: (key) => key,
   }
 );
@@ -68,6 +68,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       popular_badge: "Popular",
       price_from: "from",
       price_free: "FREE",
+      price_on_request: "On Request",
+      unit_strand: "strand",
       categories: {
         consultation: "Consultation",
         cuts_styling: "Cuts and Styling",
@@ -76,6 +78,101 @@ const dictionaries: Record<Locale, Dictionary> = {
         haircuts: "Haircuts",
         grooming: "Grooming",
         packages: "Packages",
+        extensions: "Extensions",
+      },
+      items: {
+        "women-wash-cut-dry-long": {
+          name: "Women – Long hair wash, cut & dry",
+          description: "Wash, cut, and dry for long hair.",
+        },
+        "women-styling-addon": {
+          name: "Styling (blow dry/curling iron)",
+          description: "Add-on styling with blow dry or curling iron.",
+        },
+        "women-blowdry-styling": {
+          name: "Women – Blow dry styling",
+          description: "Hair wash, dry, and blow dry styling for a beautiful, groomed look.",
+        },
+        "women-curls-wash": {
+          name: "Women – Curls with curling iron (incl. wash)",
+          description: "Wash and curls with scrolling iron for a beautiful, long-lasting look.",
+        },
+        "women-root-touch": {
+          name: "Root Touch Up",
+          description: "Touch up roots for a fresh, even color.",
+        },
+        "women-color-short": {
+          name: "Color – Short hair",
+          description: "Full coloring for short hair for an even, fresh color.",
+        },
+        "women-color-medium": {
+          name: "Color – Medium hair",
+          description: "Full coloring for medium hair for an even, fresh color.",
+        },
+        "women-color-long": {
+          name: "Color – Long hair",
+          description: "Full coloring for long hair for an even, fresh color.",
+        },
+        "women-toner": {
+          name: "Toner (rinse)",
+          description: "Refreshing toner to neutralize the color and give extra shine.",
+        },
+        "women-highlights-package-short": {
+          name: "Highlights Package (Short Hair)",
+          description: "Highlights for short hair with Olaplex and toner for a fresh, even color. Includes cut and dry.",
+        },
+        "women-highlights-package-medium": {
+          name: "Highlights Package (Medium Hair)",
+          description: "Highlights for medium hair with Olaplex and toner for a fresh, even color. Includes cut and dry.",
+        },
+        "women-highlights-package-long": {
+          name: "Highlights Package (Long Hair)",
+          description: "Highlights for long hair with Olaplex and toner for a fresh, even color. Includes cut and dry.",
+        },
+        "women-creative-color": {
+          name: "Balayage / Babylights / Ombre / Reflex / Face-framing",
+          description: "We choose the best treatment for you in the salon. Price depends on length, thickness, and technique.",
+        },
+        "women-extensions": {
+          name: "Micro Keratin Extensions",
+          description: "For extra length and volume with a natural look. Treatment and color tailored to your hair.",
+        },
+        "women-extensions-refit": {
+          name: "Micro-keratin extensions – Refit",
+          description: "Extensions removed and replaced with new micro-keratin per strand.",
+        },
+        "men-haircut": {
+          name: "Men Haircut",
+          description: "Complete haircut with consultation, precision cut, and styling. Any length or style.",
+        },
+        "men-fade": {
+          name: "Skin Fade / Taper",
+          description: "Modern fade haircut with precise blending. Includes styling.",
+        },
+        "men-buzz-cut": {
+          name: "Buzz Cut",
+          description: "Clean, uniform cut with clippers. Quick and classic.",
+        },
+        "men-kids-cut": {
+          name: "Kids Haircut (Under 12)",
+          description: "Patient, kid friendly haircut service.",
+        },
+        "men-beard-trim": {
+          name: "Beard Trim and Shaping",
+          description: "Detailed beard sculpting with trimmer and scissors. Includes hot towel finish.",
+        },
+        "men-hot-shave": {
+          name: "Traditional Hot Towel Shave",
+          description: "Classic straight razor shave with hot towel treatment. Smooth and relaxing.",
+        },
+        "men-combo": {
+          name: "Haircut + Beard Combo",
+          description: "Complete grooming package. Haircut and beard trim.",
+        },
+        "men-full-service": {
+          name: "Full Grooming Service",
+          description: "The ultimate package: haircut, beard trim, and hot towel shave.",
+        },
       },
     },
     testimonials: {
@@ -163,6 +260,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       popular_badge: "Populair",
       price_from: "vanaf",
       price_free: "GRATIS",
+      price_on_request: "Op afspraak",
+      unit_strand: "streng",
       categories: {
         consultation: "Consultatie",
         cuts_styling: "Knippen en Styling",
@@ -171,51 +270,68 @@ const dictionaries: Record<Locale, Dictionary> = {
         haircuts: "Herenknip",
         grooming: "Baard en Verzorging",
         packages: "Pakketten",
+        extensions: "Extensions",
       },
       items: {
-        "women-free-consultation": {
-          name: "Gratis Consult",
-          description: "Gratis haarconsult om je wensen te bespreken, je haartype te beoordelen en de beste behandelingen te adviseren. Geen verplichting.",
+        "women-wash-cut-dry-long": {
+          name: "Dames – lang haar wassen, knippen & drogen",
+          description: "Wassen, knippen en drogen speciaal voor lang haar.",
         },
-        "women-cut-style": {
-          name: "Dames knippen en stylen",
-          description: "Persoonlijke knipbeurt inclusief consult, wassen, precisieknip en fohnen. Afgestemd op je gezichtsvorm en lifestyle.",
+        "women-styling-addon": {
+          name: "Styling (model föhnen/krultang)",
+          description: "Extra styling met föhn of krultang.",
         },
-        "women-cut-only": {
-          name: "Alleen knippen",
-          description: "Snelle precisieknip zonder wassen of styling. Perfect voor bijpunten.",
+        "women-blowdry-styling": {
+          name: "Dames – föhnen in model",
+          description: "Haar wassen drogen en in model föhnen voor een mooie, verzorgde look.",
         },
-        "women-blowdry": {
-          name: "Wassen en fohnen",
-          description: "Luxe wasbeurt met professionele fohn styling.",
-        },
-        "women-special-styling": {
-          name: "Feeststyling",
-          description: "Elegante opsteek of styling voor speciale gelegenheden. Ideaal voor bruiloften, feesten en events.",
-        },
-        "women-full-color": {
-          name: "Volledige kleuring",
-          description: "Complete kleurverandering met premium producten, toner en styling. Inclusief consult.",
-        },
-        "women-balayage": {
-          name: "Balayage en ombre",
-          description: "Met de hand aangebrachte highlights voor een natuurlijke, zongekuste look. Inclusief toner en styling.",
-        },
-        "women-highlights": {
-          name: "Deel highlights",
-          description: "Folies voor dimensie en helderheid. Inclusief toner en fohn styling.",
+        "women-curls-wash": {
+          name: "Dames – krullen met krultang (incl. wassen)",
+          description: "Wassen en krullen met de krultang voor een mooie, langdurige look.",
         },
         "women-root-touch": {
           name: "Uitgroei bijwerken",
-          description: "Kleur opfrissen voor uitgroei. Snel en onderhoudsvriendelijk.",
+          description: "Uitgroei bijwerken voor een frisse, egale kleur.",
+        },
+        "women-color-short": {
+          name: "Kleuren – kort haar",
+          description: "Volledige kleuring voor kort haar voor een egale, frisse kleur.",
+        },
+        "women-color-medium": {
+          name: "Kleuren – halflang haar",
+          description: "Volledige kleuring voor halflang haar voor een egale, frisse kleur.",
+        },
+        "women-color-long": {
+          name: "Kleuren – lang haar",
+          description: "Volledige kleuring voor lang haar voor een egale, frisse kleur.",
         },
         "women-toner": {
-          name: "Toner behandeling",
-          description: "Verfris en corrigeer je kleurtint. Ideaal tussen volledige kleurbehandelingen.",
+          name: "Toner (spoeling)",
+          description: "Opfrissende toner om de kleur te neutraliseren en extra glans te geven.",
         },
-        "women-deep-conditioning": {
-          name: "Diep conditionerende behandeling",
-          description: "Intensieve hydratatie en herstelbehandeling voor beschadigd of droog haar.",
+        "women-highlights-package-short": {
+          name: "Highlights Pakket (Kort haar)",
+          description: "Highlights voor kort haar met Olaplex en toner voor een frisse, egale kleur. Inclusief knippen en drogen.",
+        },
+        "women-highlights-package-medium": {
+          name: "Highlights Pakket (Halflang haar)",
+          description: "Highlights voor halflang haar met Olaplex en toner voor een frisse, egale kleur. Inclusief knippen en drogen.",
+        },
+        "women-highlights-package-long": {
+          name: "Highlights Pakket (Lang haar)",
+          description: "Highlights voor lang haar met Olaplex en toner voor een frisse, egale kleur. Inclusief knippen en drogen.",
+        },
+        "women-creative-color": {
+          name: "Balayage / Babylights / Ombre / Reflex / Face-framing",
+          description: "We kiezen samen in de salon welke behandeling het beste bij jou past. Prijs afhankelijk van haarlengte, haardikte en techniek.",
+        },
+        "women-extensions": {
+          name: "Micro Keratine Extensions",
+          description: "Voor extra lengte en volume met een natuurlijke uitstraling. De behandeling en kleur worden afgestemd op jouw haar.",
+        },
+        "women-extensions-refit": {
+          name: "Micro-keratine extensions – herplaatsing",
+          description: "De extensions worden verwijderd en opnieuw geplaatst met nieuwe micro-keratine per streng.",
         },
         "men-haircut": {
           name: "Herenknipbeurt",
