@@ -20,14 +20,21 @@ export const womenServices: Service[] = [
   // Cuts & Styling
   {
     id: "women-wash-cut-dry-long",
-    name: "Long hair wash, cut & dry",
-    description: "Wash, cut, and dry for long hair. Optional styling (blow dry/curling iron): +€15.",
+    name: "Hair wash, cut & dry (all lengths)",
+    description: "Hair wash, cut, and dry. No styling. Optional styling (blow dry/curling iron): +€15.",
     duration: "60 min",
     price: "€35",
     category: "Cuts & Styling",
     popular: true,
   },
-
+  {
+    id: "women-olaplex",
+    name: "Olaplex Treatment",
+    description: "Repairs and strengthens damaged hair, for visibly healthier and shinier hair.",
+    duration: "50 min",
+    price: "€40",
+    category: "Cuts & Styling",
+  },
   {
     id: "women-blowdry-styling",
     name: "Blow dry styling",

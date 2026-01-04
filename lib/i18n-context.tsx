@@ -82,8 +82,12 @@ const dictionaries: Record<Locale, Dictionary> = {
       },
       items: {
         "women-wash-cut-dry-long": {
-          name: "Long hair wash, cut & dry",
-          description: "Wash, cut, and dry for long hair. Optional styling (blow dry/curling iron): +€15.",
+          name: "Hair wash, cut & dry (all lengths)",
+          description: "Hair wash, cut, and dry. No styling. Optional styling (blow dry/curling iron): +€15.",
+        },
+        "women-olaplex": {
+          name: "Olaplex Treatment",
+          description: "Repairs and strengthens damaged hair, for visibly healthier and shinier hair.",
         },
 
         "women-blowdry-styling": {
@@ -271,8 +275,12 @@ const dictionaries: Record<Locale, Dictionary> = {
       },
       items: {
         "women-wash-cut-dry-long": {
-          name: "Lang haar wassen, knippen & drogen",
-          description: "Wassen, knippen en drogen speciaal voor lang haar. Optie Styling (model föhnen/krultang): +€15.",
+          name: "Haar wassen, knippen & drogen (alle lengtes)",
+          description: "Haar wassen, knippen en drogen. Geen styling/model. Styling (model föhnen/krultang): +€15",
+        },
+        "women-olaplex": {
+          name: "Olaplex-behandeling",
+          description: "Herstelt en versterkt beschadigd haar, voor zichtbaar gezonder en glanzender haar.",
         },
 
         "women-blowdry-styling": {
